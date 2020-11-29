@@ -1,0 +1,5 @@
+En haut a gauche rendre Florent Hortala = présentation et donc suprimer l'onglet présentation
+
+Resize les immage qui dépasse 
+
+Ajouter un  petit indice cliquer sur image pour comprendre

@@ -1,0 +1,438 @@
+Body {
+    background-image: url("../image/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: grey;
+}
+
+.ActiveMe {
+    color: rgb(6, 19, 136)!important;
+    font-weight: bold;
+}
+
+.centerPerso {
+    text-align: center;
+}
+
+.rightPerso {
+    text-align: right;
+}
+
+.leftPerso {
+    text-align: left;
+}
+.marginTop17 {
+    margin-top: 17%;
+}
+.marginTop15 {
+    margin-top: 15%;
+}
+.marginTop10 {
+    margin-top: 10%;
+}
+.marginTop8 {
+    margin-top: 8%;
+}
+.marginTop7 {
+    margin-top: 7%;
+}
+
+.marginTop5 {
+    margin-top: 5%;
+}
+
+.marginTop3 {
+    margin-top: 3%;
+}
+
+.marginTop2 {
+    margin-top: 2%;
+}
+
+.marginBot10 {
+    margin-bottom: 10%;
+}
+
+.marginBot8 {
+    margin-bottom: 8%;
+}
+
+.marginBot7 {
+    margin-bottom: 7%;
+}
+
+.marginBot5 {
+    margin-bottom: 5%;
+}
+
+.marginBot3{
+    margin-bottom: 3%;
+}
+
+.marginBot1{
+    margin-bottom: 1%;
+}
+
+.alignLeft {
+    text-align: left;
+}
+
+.textBackGround002 {
+    background-color: rgb(0, 0, 0, 0.2);
+}
+
+.souligner {
+    text-decoration: underline;
+}
+
+h1, h2, h3 {
+    text-decoration: underline;
+    color: rgb(65, 62, 62);
+    font-weight: bold;
+}
+
+p {
+    font-weight: bold;
+}
+
+.textBold {
+    font-weight: bold;
+}
+
+.textColorWhite {
+    color: white;
+}
+
+.textColorGray {
+    color: gray;
+}
+
+.textColorBlack {
+    color: black;
+}
+
+.colorLecture
+{
+    color: gray;
+}
+ 
+.colorLecture:hover
+{
+    color: rgb(80, 80, 80);
+}
+
+
+
+/*Debut NavBar*/
+
+#mainNav {
+    min-height: 56px;
+    background-color: rgb(66, 66, 83);
+    text-align: center;
+    opacity: 0.95;
+}
+
+#js-scroll-trigger {
+    color: white!important;
+}
+
+#mainNav .navbar-toggler {
+    font-size: 80%;
+    padding: .75rem;
+    color: white;
+    border: 1px solid white;
+}
+
+#mainNav .navbar-toggler:focus {
+    outline: 0;
+}
+
+#mainNav .navbar-brand {
+    color: white;
+    font-weight: 700;
+    padding: .9rem 0;
+}
+
+#mainNav .navbar-nav .nav-item:hover {
+    color: fade(white, 80%);
+    outline: 0;
+}
+
+#mainNav .navbar-nav .nav-item:active,
+#mainNav .navbar-nav .nav-item:focus {
+    outline: 0;
+}
+
+@media (min-width:992px) {
+    #mainNav {
+        padding-top: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+        opacity: 0.9;
+        transition: background-color .3s ease-in-out;
+    }
+    #mainNav .navbar-brand {
+        padding: .5rem 0;
+        color: white;
+    }
+    #mainNav .nav-link {
+        transition: none;
+        color: white;
+    }
+    #mainNav .nav-link:hover {
+        color: rgba(29, 134, 7, 0.75)!important;
+    }
+    #mainNav .nav-link:active {
+        color: #fff;
+    }
+    #mainNav.navbar-shrink .nav-link.active {
+        color: #64a19d;
+        outline: 0;
+        border-bottom: .25rem solid #64a19d;
+        margin-bottom: 5%;
+    }
+}
+
+@media (max-width:992px) {
+    #mainNav {
+        padding-top: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+        opacity: 0.9;
+        transition: background-color .3s ease-in-out;
+    }
+    #mainNav .navbar-brand {
+        padding: .5rem 0;
+        color: white;
+    }
+    #mainNav .nav-link {
+        transition: none;
+        color: white;
+        border-style: inset;
+    }
+    #mainNav .nav-link:hover {
+        color: rgba(8, 109, 34, 0.75)!important;
+    }
+    #mainNav .nav-link:active {
+        color: #fff;
+    }
+    #mainNav.navbar-shrink .nav-link.active {
+        color: #64a19d;
+        outline: 0;
+        border-bottom: .25rem solid #64a19d;
+        margin-bottom: 5%;
+    }
+}
+
+@media (max-width: 767px) {
+    #mainNav {
+        padding-top: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+        opacity: 0.9;
+        transition: background-color .3s ease-in-out;
+    }
+    #mainNav .navbar-brand {
+        padding: .5rem 0;
+        color: white;
+    }
+    #mainNav .nav-link {
+        border-style: inset;
+        transition: none;
+        color: white;
+    }
+    #mainNav .nav-link:hover {
+        color: rgba(243, 4, 4, 0.75)!important;
+    }
+    #mainNav .nav-link:active {
+        color: #fff;
+    }
+    #mainNav.navbar-shrink .nav-link.active {
+        color: #64a19d;
+        outline: 0;
+        border-bottom: .25rem solid #64a19d;
+        margin-bottom: 5%;
+    }
+    body{
+        margin-top: 5%;
+    }
+    .bodyCV{
+        margin-top: 8%;
+    }
+
+}
+
+
+#mainNav .nav-link:hover {
+    color: blue;
+    font-weight: bold;
+}
+
+#navbar-collapse {
+    color: red!important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+
+/* Fin NavBar */
+
+/* Debut card */
+
+.card-header{
+    border-bottom: 3px solid gray;
+}
+
+.card {
+    background-color: transparent;
+    border: 5px solid gray;
+    border-style: inset!important;
+}
+
+.border-success {
+    border-top: 3px solid gray!important;
+}
+
+.cardInsideCard{
+    border-left: transparent;
+    border-right: transparent;
+    width: 90%; 
+    text-align: center!important; 
+    margin-left: 5%;
+}
+
+.cardinsideLastCard{
+    border-bottom: transparent;
+}
+
+/* Fin card */
+
+/* navbar-fixed-left */
+
+@media (max-width: 767px) {
+    .navbar-text {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+  
+  .navbar-fixed-left {
+      padding-top: 10px;
+      position: fixed;
+      border-radius: 0;
+      margin-top: 10%;
+      z-index: 1029;
+      /*
+      font-family: verdana;
+      font-size: 12px;
+      font-weight: 200;
+      */
+  }
+  
+  .navbar-fixed-left .navbar-nav {
+      float: left;
+      margin: 0;
+  }
+  
+  .navbar-fixed-left .navbar-nav > li {
+      float: none;  /* Cancel default li float: left */
+      width: 159px;
+  }
+  
+  .navbar-fixed-left .navbar-nav > li > a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      line-height: 20px;
+  } 
+  
+  .navbar-fixed-left .navbar-nav > li > .dropdown-menu {
+      margin-top: -30px;
+      margin-left: 150px;
+  }
+  
+  .navbar-fixed-left .navbar-nav .open .dropdown-menu {
+      position: absolute;
+      float: left;
+      background-color: #fff;
+      min-width: 160px;
+      /*
+      padding: 5px 0;
+      margin: 2px 0 0;
+      */
+  
+      border: 1px solid #ccc;
+      border: 1px solid rgba(0, 0, 0, .15);
+      border-width: 0 1px 1px;
+      border-radius: 0 0 4px 4px;
+      -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+              box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  }
+  
+  
+  
+  /* set default padding container */
+  .navbar-fixed-left + .container,
+  .navbar-fixed-left + .container-fluid {
+      padding-left: 180px;
+  }
+  
+  
+  .app-main-content {
+      padding-top: 0px;
+  }
+  
+  
+  
+  @media (max-width: 767px) {
+      .navbar-fixed-left {
+          width: 60px;
+  
+      }
+  
+      .navbar-fixed-left + .container,
+      .navbar-fixed-left + .container-fluid {
+          padding-left: 80px;
+      }
+  
+      .navbar-fixed-left .navbar-nav > li {
+          width: 59px;
+      }
+      .navbar-fixed-left .navbar-nav > li > .dropdown-menu {
+          margin-top: -30px;
+          margin-left: 50px;
+      }
+  }
+  
+  
+  
+  /* navbar-fixed dropdown */
+  
+  @media (max-width: 767px) {
+    .navbar-fixed-left .navbar-nav .open .dropdown-menu > li > a {
+      color: #333;
+    }
+    .navbar-fixed-left .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-fixed-left .navbar-nav .open .dropdown-menu > li > a:focus {
+      color: #262626;
+      background-color: #f5f5f5;
+    }
+    .navbar-fixed-left .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-fixed-left .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-fixed-left .navbar-nav .open .dropdown-menu > .active > a:focus {
+      color: #fff;
+      background-color: #337ab7;
+    }
+    .navbar-fixed-left .navbar-nav .open .dropdown-menu > .disabled > a,
+    .navbar-fixed-left .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+    .navbar-fixed-left .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+      color: #777;
+    }
+  
+  }
+
+
