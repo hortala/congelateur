@@ -1,4 +1,4 @@
-url = "http://127.0.0.1";
+url = "http://@localhost";
 port = ":5000/";
 destination = "user";
 
@@ -60,7 +60,7 @@ function RequestCreateUser(nom, pw1, adressMail) {
 }
 
 function ResquestCreateUserSuccess() {
-    document.location.href = "../../html/PageConnexion.html";
+    document.location.href = "../index.html";
     alert("Compte crée");
 }
 
