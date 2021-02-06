@@ -87,7 +87,7 @@ function ResquestFrigosThisUserSuccess(response) {
         corpsHTML =
             corpsHTML +
             "<h1 align=center>" + requestFrigo[i].fre_name + "</h1>" +
-            "<img src=../image/Frigo/" + (i + 1).toString() + ".jpg onclick=ClickImage(" + i + ") width=100%>" +
+            "<div class=centerPerso><img src=../image/Frigo/" + (i + 1).toString() + ".jpg onclick=ClickImage(" + i + ") width=70%></div>" +
             "<br><br>"
     }
     document.getElementById("GenerationFrigo").innerHTML = corpsHTML;

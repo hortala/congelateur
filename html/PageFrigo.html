@@ -23,6 +23,7 @@
     <!-- Custom styles for this template -->
     <link href="../css/main.css" rel="stylesheet">
     <link href="../css/PageFrigo.css" rel="stylesheet">
+    
 
 </head>
 
@@ -30,7 +31,18 @@
 
     <div class="main_boxes">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row marginTop5">
+                <div class="col-md-3"></div>
+                <div class="col-md-3 buttonPerso centerPerso">
+                    <button type="button " onclick="DisplayList()">Affichage listes d'aliments</button>
+                </div>
+                <div class="col-md-3 buttonPerso centerPerso">
+                    <button type="button " onclick="DisplayType()">Affichage par types d'aliments</button>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+            <div class="row ">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div id="GenerationFood" class="GenerationAllFood">
@@ -38,7 +50,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 buttonPerso">
-                    <button type="button " onclick="AddFood()">Ajouter un alliment</button>
+                    <button type="button " onclick="AddFood()">Ajouter un aliment</button>
                 </div>
             </div>
         </div>
@@ -52,19 +64,20 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="TitleModal">Ajoue d'un alliment</h2>
+                <h2 id="TitleModal">Ajoue d'un aliment</h2>
             </div>
             <div>
-                <p class="textColorBlack"><strong>Nom de l'alliment</strong></p>
+                <p class="textColorBlack"><strong>Nom de l'aliment</strong></p>
                 <input type="NameFood" id="NameFood" placeholder="boeuf">
                 <br>
                 <br>
-                <p class="textColorBlack"><strong>poids de l'alliment en (gramme)</strong></p>
-                <input type="number" id="poids" placeholder="100">
+                <p class="textColorBlack"><strong>poids de l'aliment en (gramme)</strong></p>
+                <input type="poids" id="poids" placeholder="100">
                 <br>
                 <br>
-                <p class="textColorBlack"><strong>Type d'alliment</strong></p>
-                <input type="TypeFood" id="TypeFood" placeholder="Viande">
+                <div id="TypeListe">
+                    
+                </div>
                 <br>
                 <br>
                 <button class="bouton" onclick="SendAddFood()">Créer</button>
@@ -84,6 +97,8 @@
     <!-- javascript -->
     <script src="../js/main.js"></script>
     <script src="../js/PageFrigo.js"></script>
+    <script src="../js/PageFrigoDisplayList.js"></script>
+    <script src="../js/PageFrigoDisplayType.js"></script>
 
 </body>
 

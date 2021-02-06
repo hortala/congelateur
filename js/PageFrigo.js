@@ -1,51 +1,48 @@
 url = "http://@localhost";
 port = ":5000/";
 
-/* Begin create Foods */
-function CreateAllFoods() {
-    RequestFoodsThisFreezer(sessionStorage.getItem("idUser") + "/" + sessionStorage.getItem("idFrigo") + "/food");
+/* Begin Supression d'image */
+
+function ClickImage(NumImage){
+   RequestDeleteFood (window.requestFoods[NumImage].foo_id, (sessionStorage.getItem("idUser") +"/"+ sessionStorage.getItem("idFrigo") + "/food"));
 }
 
-function RequestFoodsThisFreezer(destination) {
+function RequestDeleteFood(idFood, destination) {
     $.ajax({
-        type: "GET",
+        type: "DELETE",
         url: url + port + destination,
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
-        asynch: false,
-        success: function(response) {
-            RequestFoodsThisFreezerSucces(response);
+        data: `{"idFood": "${idFood}"}`,
+        asynch: true,
+        success: function(code_html, status, error) {
+            RequestDeleteFoodSuccess();
         },
         error: function(request, status, error) {
-            RequestFoodsThisFreezerError(request, status, error);
+            RequestDeleteFoodError(request, status, error);
         }
     });
 }
 
-function RequestFoodsThisFreezerSucces(response) {
-    window.requestFoods = JSON.parse(JSON.stringify(response));
-    var corpsHTML = "";
-    for (var i = 0; i < window.requestFoods.length; i++) {
-
-        corpsHTML =
-            corpsHTML +
-            "<h1 align=center>" + requestFoods[i].foo_name + "</h1>" +
-            
-            "<br><br>"
-    }
-    document.getElementById("GenerationFood").innerHTML = corpsHTML;
+function RequestDeleteFoodSuccess() {
+    alert("Aliment suprimé"); 
+    window.location.reload(true); 
 }
 
-function RequestFoodsThisFreezerError(request, status, error) {
-    if (request.status == 520) {
-        alert("Pas d'alliment");
+function RequestDeleteFoodError(request, status, error) {
+    if (request.status == 570) {
+        alert("Nom du frigo déjà utilisé");
+    } else if (request.status == 550) {
+        alert("Problème base de donnée");
+    } else if (request.status == 400) {
+        alert("Bad format");
     } else {
         alert("Error");
     }
-    return false;
 }
-/* End create Foods */
- 
+
+/* En Supression image */
+
 /* Begin add Food */
 
 function AddFood(){
@@ -56,7 +53,8 @@ function AddFood(){
 function DisplayModal() {
     var modal = document.getElementById("myModal"); // Get the modal
 
-
+    DisplayListeType()
+    
 
     modal.style.display = "block";
     // When the user clicks anywhere outside of the modal, close it
@@ -68,8 +66,49 @@ function DisplayModal() {
     }
 }
 
-function GenerationSensorModal() {
-    CreateAllSensor();
+function DisplayListeType(){
+    RequestTypes("type");
+}
+
+function RequestTypes(destination) {
+    $.ajax({
+        type: "GET",
+        url: url + port + destination,
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        asynch: false,
+        success: function(response) {
+            RequestTypesSucces(response);
+        },
+        error: function(request, status, error) {
+            RequestTypesError(request, status, error);
+        }
+    });
+}
+
+function RequestTypesSucces(response) {
+    window.requestTypes = JSON.parse(JSON.stringify(response));
+
+    var corpsHTMLListe = "<select name=TypesAlliments id=listeType>";
+    for (var i = 0; i < window.requestTypes.length; i++) {
+
+        corpsHTMLListe =
+        corpsHTMLListe +
+            "<option value="+ window.requestTypes[i].typ_id +">"+ window.requestTypes[i].typ_name +"</option>";
+    }
+    corpsHTMLListe = corpsHTMLListe + "</select>";
+    document.getElementById("TypeListe").innerHTML = corpsHTMLListe;
+
+    return true;
+}
+
+function RequestTypesError(request, status, error) {
+    if (request.status == 520) {
+        alert("Pas d'alliment");
+    } else {
+        alert("Error");
+    }
+    return false;
 }
 
 /* End Modal */
@@ -77,15 +116,10 @@ function GenerationSensorModal() {
 function SendAddFood(){
     var nameFood = document.getElementById("NameFood").value;
     var poids = document.getElementById("poids").value;
-    var type = document.getElementById("TypeFood").value;
+    var idType = document.getElementById("listeType").value;   
 
-    if (Verification(nameFood) && Verification(type)) {
-        alert('ok on est passé');
-        alert(sessionStorage.getItem("idUser"));
-        alert(sessionStorage.getItem("idFrigo"));
-        alert(sessionStorage.getItem("idUser") + "/" +sessionStorage.getItem("idFrigo") + "/food");
-        alert(url+port+sessionStorage.getItem("idUser") + "/" +sessionStorage.getItem("idFrigo") + "/food")
-        RequestCreateFood(nameFood, poids, type, (sessionStorage.getItem("idUser") +"/"+ sessionStorage.getItem("idFrigo") + "/food"));
+    if (Verification(nameFood) && Verification(poids.toString())) {
+        RequestCreateFood(nameFood, poids, idType, (sessionStorage.getItem("idUser") +"/"+ sessionStorage.getItem("idFrigo") + "/food"));
     } else {
         alert('attention saisie incorect');
         return;
@@ -93,7 +127,7 @@ function SendAddFood(){
 }
 
 function Verification(string) {
-    if (!isNaN(string)) { // Si un des champs est vide
+    if (string == "") { // Si un des champs est vide
         return false;
     } else {
         return true;
@@ -118,11 +152,7 @@ function RequestCreateFood(nameFood, poids, type, destination) {
 }
 
 function ResquestRequestCreateFoodSuccess() {
-    /*
-    modal.style.display = "none";
-    window.location.reload(false);
-    */
-   document.location.href = "PageFrigo.html";
+    alert("Aliment ajouté");        
 }
 
 function ResquestRequestCreateFoodError(request, status, error) {
@@ -139,7 +169,7 @@ function ResquestRequestCreateFoodError(request, status, error) {
 
 /*  End add Food */
 
-CreateAllFoods();
+
 
 
 
