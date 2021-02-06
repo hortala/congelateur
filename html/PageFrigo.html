@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Visualisation Frigo">
+    <meta name="author" content="HORTALA Florent">
+    <title>Visualisation Frigo</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendorMe/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendorMe/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/PageFrigo.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <div class="main_boxes">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div id="GenerationFood" class="GenerationAllFood">
+
+                    </div>
+                </div>
+                <div class="col-md-3 buttonPerso">
+                    <button type="button " onclick="AddFood()">Ajouter un alliment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="TitleModal">Ajoue d'un alliment</h2>
+            </div>
+            <div>
+                <p class="textColorBlack"><strong>Nom de l'alliment</strong></p>
+                <input type="NameFood" id="NameFood" placeholder="boeuf">
+                <br>
+                <br>
+                <p class="textColorBlack"><strong>poids de l'alliment en (gramme)</strong></p>
+                <input type="number" id="poids" placeholder="100">
+                <br>
+                <br>
+                <p class="textColorBlack"><strong>Type d'alliment</strong></p>
+                <input type="TypeFood" id="TypeFood" placeholder="Viande">
+                <br>
+                <br>
+                <button class="bouton" onclick="SendAddFood()">Créer</button>
+            </div>
+            <div id="ModalFood"></div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendorMe/jquery/jquery.min.js"></script>
+    <script src="../vendorMe/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="../vendorMe/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- javascript -->
+    <script src="../js/main.js"></script>
+    <script src="../js/PageFrigo.js"></script>
+
+</body>
+
+</html>

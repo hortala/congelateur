@@ -1,24 +1,23 @@
-url = "http://192.168.71.128";
+url = "http://@localhost";
 port = ":5000/";
 destinationConnexion = "connexion/client";
 
 function Connexion() {
-    VerificationConnexion(document.getElementById('login').value, document.getElementById('password').value);
+    VerificationConnexion(document.getElementById('mailadress').value, document.getElementById('password').value);
 }
 
-function VerificationConnexion(login, password) {
-    if (!VerificationChamp(login, password)) {
+function VerificationConnexion(mailadress, password) {
+    if (!VerificationChamp(mailadress, password)) {
         return false;
     }
 
-    // Chiffrement du mot de passe
-    RequestConnexion(login, password);
+    RequestConnexion(mailadress, password);
 }
 
-function VerificationChamp(login, password) {
-    if (!isNaN(login) || !isNaN(password)) {
-        if (!isNaN(login)) {
-            alert("Champ login non remplie");
+function VerificationChamp(mailadress, password) {
+    if (!isNaN(mailadress) || !isNaN(password)) {
+        if (!isNaN(mailadress)) {
+            alert("Champ Adresse mail non remplie");
         } else {
             alert("Champ mot de passe non remplie");
         }
@@ -27,13 +26,13 @@ function VerificationChamp(login, password) {
     return true;
 }
 
-function RequestConnexion(login, password) {
+function RequestConnexion(mailadress, password) {
     $.ajax({
         type: "POST",
         url: url + port + destinationConnexion,
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
-        data: `{"login": "${login}", "mdp": "${password}"}`,
+        data: `{"mailadress": "${mailadress}", "mdp": "${password}"}`,
         asynch: true,
         success: function(response) {
             return ResquestConnexionSuccess(response);
@@ -48,12 +47,12 @@ function ResquestConnexionSuccess(response) {
     alert("Connexion réussis");
     var data = JSON.parse(JSON.stringify(response));
     sessionStorage.setItem("idUser", data.id);
-    return RequestFindMaisonUser(sessionStorage.getItem("idUser") + "/maison");;
+    return RequestFindfrigoUser(sessionStorage.getItem("idUser") + "/freezer");;
 }
 
 function ResquestConnexionError(request, status, error) {
     if (request.status == 560) {
-        alert("Mauvais Login")
+        alert("Mauvaise Adresse mail")
     } else if (request.status == 570) {
         alert("Mauvais mot de passe");
     } else if (request.status == 400) {
@@ -64,7 +63,7 @@ function ResquestConnexionError(request, status, error) {
     return false;
 }
 
-function RequestFindMaisonUser(destination) {
+function RequestFindfrigoUser(destination) {
     $.ajax({
         type: "GET",
         url: url + port + destination,
@@ -72,23 +71,23 @@ function RequestFindMaisonUser(destination) {
         contentType: "application/json; charset=utf-8",
         asynch: true,
         success: function(response) {
-            ResquestCreateMaisonSuccess(response);
+            ResquestCreatefrigoSuccess(response);
         },
         error: function(request, status, error) {
-            ResquestCreateMaisonError(request, status, error);
+            ResquestCreatefrigoError(request, status, error);
         }
     });
 }
 
-function ResquestCreateMaisonSuccess(response) {
-    alert("Maison trouvée");
-    window.location.href = '../html/Maison/ConnexionMaison.html';
+function ResquestCreatefrigoSuccess(response) {
+    alert("Frigo trouvée");
+    window.location.href = 'html/ConnexionFrigo.html';
     return true;
 }
 
-function ResquestCreateMaisonError(request, status, error) {
+function ResquestCreatefrigoError(request, status, error) {
     if (request.status == 520) {
-        window.location.href = '../html/Creation/CreationMaison.html';
+        window.location.href = 'html/CreationFrigo.html';
     } else {
         alert("Error");
     }
@@ -97,5 +96,6 @@ function ResquestCreateMaisonError(request, status, error) {
 }
 
 function GoCreateAccount() {
-    document.location.href = "../congelateur/html/Creation/CreationCompte.html";
+    document.location.href = "html/CreationCompte.html";
 }
+
