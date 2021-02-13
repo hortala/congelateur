@@ -1,5 +1,7 @@
-url = "http://@localhost";
-port = ":5000/";
+url = "https://congelateur.herokuapp.com/";
+port = "";
+//port = ":5000/";
+
 nbFrigo = 0;
 requestFrigo = [];
 
