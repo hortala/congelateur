@@ -1,4 +1,4 @@
-url = "https://congelateur.herokuapp.com/";
+url = sessionStorage.getItem("url");
 port = "";
 //port = ":5000/";
 
@@ -48,12 +48,12 @@ function RequestDeleteFoodError(request, status, error) {
 /* Begin add Food */
 
 function AddFood(){
-    DisplayModal();
+    DisplayModalAddFood();
 }
 
 /* Begin Modal */
-function DisplayModal() {
-    var modal = document.getElementById("myModal"); // Get the modal
+function DisplayModalAddFood() {
+    var modal = document.getElementById("modalAddFood"); // Get the modal
 
     DisplayListeType()
     
@@ -175,6 +175,3 @@ function ResquestRequestCreateFoodError(request, status, error) {
 
 
 
-/*
-"<img src=../../image/Piece/" + (i + 1).toString() + ".jpg onclick=ClickImage(" + i + ") width=100%>" +
-*/

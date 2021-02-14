@@ -1,4 +1,4 @@
-url = "https://congelateur.herokuapp.com/";
+url = sessionStorage.getItem("url");
 port = "";
 //port = ":5000/";
 

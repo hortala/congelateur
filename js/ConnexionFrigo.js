@@ -1,12 +1,13 @@
-url = "https://congelateur.herokuapp.com/";
+url = sessionStorage.getItem("url");
 port = "";
 //port = ":5000/";
 
 nbFrigo = 0;
 requestFrigo = [];
 
+/* Begin connexion Frigo */
 
-function ClickImage(position) {
+function ClickImageConnexionFrigo(position) {
     alert(window.requestFrigo[position].mai_nom);
     sessionStorage.setItem("nomFrigo", window.requestFrigo[position].fre_name);
     sessionStorage.setItem("idFrigo", window.requestFrigo[position].fre_id);
@@ -14,9 +15,52 @@ function ClickImage(position) {
     alert("ok" + (position + 1).toString());
 }
 
+/* End connexion frigo */
 
+/* Begin Delete Frigo */
+
+function ClickImageDeleteFreezer(NumImage){
+    RequestDeleteFreezer (window.requestFrigo[NumImage].fre_id, (sessionStorage.getItem("idUser") +"/freezer"));
+}
+
+function RequestDeleteFreezer(idFreezer, destination) {
+    $.ajax({
+        type: "DELETE",
+        url: url + port + destination,
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: `{"idFreezer": "${idFreezer}"}`,
+        asynch: true,
+        success: function(code_html, status, error) {
+            RequestDeleteFreezerSuccess();
+        },
+        error: function(request, status, error) {
+            RequestDeleteFreezerError(request, status, error);
+        }
+    });
+}
+
+function RequestDeleteFreezerSuccess() {
+    alert("Frigo suprimé"); 
+    window.location.reload(true); 
+}
+
+function RequestDeleteFreezerError(request, status, error) {
+    if (request.status == 570) {
+        alert("Nom du frigo déjà utilisé");
+    } else if (request.status == 550) {
+        alert("Problème base de donnée");
+    } else if (request.status == 400) {
+        alert("Bad format");
+    } else {
+        alert("Error");
+    }
+}
+
+/* End Delete Frigo */ 
 
 /*Begin ajoue d'un frigo*/
+
 function AddFrigo() {
     var nameFrigo = prompt("Entrer le nom du frigo", "");
     RequestCreateFrigo(nameFrigo, sessionStorage.getItem("idUser") + "/freezer");
@@ -88,8 +132,9 @@ function ResquestFrigosThisUserSuccess(response) {
 
         corpsHTML =
             corpsHTML +
-            "<h1 align=center>" + requestFrigo[i].fre_name + "</h1>" +
-            "<div class=centerPerso><img src=../image/Frigo/" + (i + 1).toString() + ".jpg onclick=ClickImage(" + i + ") width=70%></div>" +
+            "<h1 align=center>" + requestFrigo[i].fre_name + "</h1>" + 
+            "<div class=centerPerso><img src=../image/Supression.jpg onclick=ClickImageDeleteFreezer(" + i + ") width=5%></div>"+
+            "<div class=centerPerso><img src=../image/Frigo/" + (i + 1).toString() + ".jpg onclick=ClickImageConnexionFrigo(" + i + ") width=50%></div>" +
             "<br><br>"
     }
     document.getElementById("GenerationFrigo").innerHTML = corpsHTML;

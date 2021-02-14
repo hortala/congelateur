@@ -1,5 +1,6 @@
-url = "https://congelateur.herokuapp.com/";
+url = sessionStorage.getItem("url");
 port = "";
+sessionStorage.setItem("StateDisplay", "List");
 //port = ":5000/";
 
 
