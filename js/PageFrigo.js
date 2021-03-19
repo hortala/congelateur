@@ -3,7 +3,7 @@ port = "";
 //port = ":5000/";
 
 
-/* Begin Supression d'image */
+/* Begin Supression d'aliments */
 
 function ClickImage(NumImage){
    RequestDeleteFood (window.requestFoods[NumImage].foo_id, (sessionStorage.getItem("idUser") +"/"+ sessionStorage.getItem("idFrigo") + "/food"));
@@ -43,7 +43,7 @@ function RequestDeleteFoodError(request, status, error) {
     }
 }
 
-/* En Supression image */
+/* En Supression aliment */
 
 /* Begin add Food */
 
@@ -91,7 +91,8 @@ function RequestTypes(destination) {
 function RequestTypesSucces(response) {
     window.requestTypes = JSON.parse(JSON.stringify(response));
 
-    var corpsHTMLListe = "<select name=TypesAlliments id=listeType>";
+    var corpsHTMLListe = "<select class=custom-select id=listeType>"
+        + "option selected>Choisir le type</option>";
     for (var i = 0; i < window.requestTypes.length; i++) {
 
         corpsHTMLListe =

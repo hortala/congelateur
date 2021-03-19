@@ -3,22 +3,11 @@ port = "";
 //port = ":5000/";
 
 
-function SendInformation() {
-    var nameFrigo = document.getElementById("NameFrigo").value;
+/*Begin ajoue d'un frigo*/
 
-    if (Verification(nameFrigo)) {
-        RequestCreateFrigo(nameFrigo, sessionStorage.getItem("idUser") + "/freezer");
-    } else {
-        return;
-    }
-}
-
-function Verification(nameFrigo) {
-    if (!isNaN(nameFrigo)) { // Si un des champs est vide
-        return false;
-    } else {
-        return true;
-    }
+function AddFrigo() {
+    var nameFrigo = prompt("Entrer le nom du nouveau frigo", "");
+    RequestCreateFrigo(nameFrigo, sessionStorage.getItem("idUser") + "/freezer");
 }
 
 function RequestCreateFrigo(nameFrigo, destination) {
@@ -27,7 +16,7 @@ function RequestCreateFrigo(nameFrigo, destination) {
         url: url + port + destination,
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
-        data: `{"nomFrigo": "${nameFrigo}"}`,
+        data: `{"nomFrigo": "${nameFrigo}", "idUser": "${sessionStorage.getItem("idUser")}"}`,
         asynch: true,
         success: function(code_html, status, error) {
             ResquestCreateFrigoSuccess();
@@ -39,7 +28,8 @@ function RequestCreateFrigo(nameFrigo, destination) {
 }
 
 function ResquestCreateFrigoSuccess() {
-    document.location.href = "../html/ConnexionFrigo.html";
+    alert("Frigo crée");
+    window.location.reload(false);
 }
 
 function ResquestCreateFrigoError(request, status, error) {
@@ -47,9 +37,12 @@ function ResquestCreateFrigoError(request, status, error) {
         alert("Nom du frigo déjà utilisé");
     } else if (request.status == 550) {
         alert("Problème base de donnée");
+    } else if (request.status == 520) {
+        alert("Utilisateur inexistant");
     } else if (request.status == 400) {
         alert("Bad format");
     } else {
         alert("Error");
     }
 }
+/*End ajoue d'un frigo*/

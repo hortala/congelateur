@@ -32,11 +32,11 @@
         <div class="container-fluid">
             <div class="row marginTop5">
                 <div class="col-md-3"></div>
-                <div class="col-md-3 buttonPerso centerPerso">
-                    <button type="button " onclick="DisplayList()">Affichage listes d'aliments</button>
+                <div class="col-md-3 centerPerso">
+                    <button type="button" class="btn btn-dark" onclick="DisplayList()">Affichage listes d'aliments</button>
                 </div>
-                <div class="col-md-3 buttonPerso centerPerso">
-                    <button type="button " onclick="DisplayType()">Affichage par types d'aliments</button>
+                <div class="col-md-3 centerPerso">
+                    <button type="button" class="btn btn-dark" onclick="DisplayType()">Affichage par types d'aliments</button>
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -48,12 +48,12 @@
 
                     </div>
                 </div>
-                <div class="col-md-3 buttonPerso">
+                <div class="col-md-3">
                     <div class="row">
-                        <button type="button " onclick="ShareFreezer()">Partager le frigo</button>
+                        <button type="button" class="btn btn-dark" onclick="ShareFreezer()">Partager le frigo</button>
                     </div>
                     <div class="row marginTop5">
-                        <button type="button " onclick="AddFood()">Ajouter un aliment</button>
+                        <button type="button" class="btn btn-dark" onclick="AddFood()">Ajouter un aliment</button>
                     </div>                    
                 </div>
                 <div class="buttonPerso">
@@ -75,19 +75,19 @@
             </div>
             <div>
                 <p class="textColorBlack"><strong>Nom de l'aliment</strong></p>
-                <input type="NameFood" id="NameFood" placeholder="boeuf">
+                <input type="text" class="form-control" id="NameFood" placeholder="boeuf" aria-label="Username" aria-describedby="basic-addon1">
                 <br>
                 <br>
-                <p class="textColorBlack"><strong>poids de l'aliment en (gramme)</strong></p>
-                <input type="poids" id="poids" placeholder="100">
+                <p class="textColorBlack"><strong>Poids de l'aliment en (gramme)</strong></p>
+                <input type="number" class="form-control" id="poids" placeholder="100" aria-label="Username" aria-describedby="basic-addon1">
                 <br>
                 <br>
+                <p class="textColorBlack"><strong>Type d'aliment</strong></p>
                 <div id="TypeListe">
-                    
                 </div>
                 <br>
                 <br>
-                <button class="bouton" onclick="SendAddFood()">Créer</button>
+                <button class="btn btn-dark" onclick="SendAddFood()">Créer</button>
             </div>
             <div id="ModalFood"></div>
         </div>
@@ -101,8 +101,9 @@
             </div>
             <div>
                 <p class="textColorBlack"><strong>Adresse email de la personne</strong></p>
-                <input type="email" id="mailadress" placeholder="persone@">
-                <button class="bouton" onclick="SendShareFreezer()">Créer</button>
+                <input type="number" class="form-control" id="mailadress" placeholder="persone@" aria-label="Username" aria-describedby="basic-addon1">
+                <br>
+                <button class="btn btn-dark" onclick="SendShareFreezer()">Créer</button>
             </div>
             <div id="ModalFood"></div>
         </div>
