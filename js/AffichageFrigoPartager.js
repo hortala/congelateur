@@ -23,21 +23,41 @@ function SearchShareFreezerRequest(destination) {
 
 function SearchShareFreezerRequestSucces(response) {
     window.requestFreezerShare = JSON.parse(JSON.stringify(response));
-    
-    var corpsHTMLListe = "<table><thead><tr><th colspan=3>Frigo partagé(s)</th></tr></thead>";
-    corpsHTMLListe = corpsHTMLListe + "<tbody>";
+
+    var corpsHTMLListe = "<table class="+"\""+"table table-bordered table-dark"+"\""+">"
+                        +"<thead>"
+                        +"<tr>"
+                        +"<th colspan=3>Frigo partagé(s)</th>"
+                        +"</tr>"
+                        +"</thead>"
+                        +"<tbody>";
+
     for (var i = 0; i < window.requestFreezerShare.length; i++) {
 
         corpsHTMLListe = corpsHTMLListe +
             "<tr><td>" + window.requestFreezerShare[i].fre_name + "</td>"+
             "<td>" + window.requestFreezerShare[i].use_mailadress + "</td>"+
-            "<td><img src=../image/Supression.jpg onclick=ClickImageDeleteShareFreezer(" + i + ") width=10%></td></tr>";
+            "<td><img src=../image/Supression.jpg onclick=ClickImageDeleteShareFreezer(" + i + ") width=30%></td></tr>";
     }
     corpsHTMLListe = corpsHTMLListe + "</tbody></table>";
     document.getElementById("FrigoPartager").innerHTML = corpsHTMLListe;
 
     return true;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function SearchShareFreezerRequestError(request, status, error) {
     if (request.status == 520) {

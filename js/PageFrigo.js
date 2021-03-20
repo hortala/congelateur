@@ -47,7 +47,7 @@ function RequestDeleteFoodError(request, status, error) {
 
 /* Begin add Food */
 
-function AddFood(){
+function AddFoodDisplayModal(){
     DisplayModalAddFood();
 }
 
