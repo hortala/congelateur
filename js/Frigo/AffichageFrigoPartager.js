@@ -35,28 +35,15 @@ function SearchShareFreezerRequestSucces(response) {
     for (var i = 0; i < window.requestFreezerShare.length; i++) {
 
         corpsHTMLListe = corpsHTMLListe +
-            "<tr><td>" + window.requestFreezerShare[i].fre_name + "</td>"+
+            "<tr><td>" + window.requestFreezerShare[i].fre_name +"</td>"+
             "<td>" + window.requestFreezerShare[i].use_mailadress + "</td>"+
-            "<td><img src=../image/Supression.jpg onclick=ClickImageDeleteShareFreezer(" + i + ") width=30%></td></tr>";
+            "<td><img src=../image/Supression.jpg onclick=ClickImageDeleteShareFreezer(" + window.requestFreezerShare[i].uin_id + ") width=30%></td></tr>";
     }
     corpsHTMLListe = corpsHTMLListe + "</tbody></table>";
     document.getElementById("FrigoPartager").innerHTML = corpsHTMLListe;
 
     return true;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function SearchShareFreezerRequestError(request, status, error) {
@@ -70,46 +57,6 @@ function SearchShareFreezerRequestError(request, status, error) {
 
 /* End display share freezer */
 
-/* begin supression frigo partagé */
 
-function ClickImageDeleteShareFreezer(NumImage){    
-    RequestDeleteShareFreezer (window.requestFreezerShare[NumImage].uin_id, (sessionStorage.getItem("idUser") +"/userinvit"));
-}
-
-function RequestDeleteShareFreezer(idUserInvit, destination) {
-    $.ajax({
-        type: "DELETE",
-        url: url + port + destination,
-        dataType: 'json',
-        contentType: "application/json; charset=utf-8",
-        data: `{"idUserInvit": "${idUserInvit}"}`,
-        asynch: true,
-        success: function(code_html, status, error) {
-            RequestDeleteShareFreezerSuccess();
-        },
-        error: function(request, status, error) {
-            RequestDeleteShareFreezerError(request, status, error);
-        }
-    });
-}
-
-function RequestDeleteShareFreezerSuccess() {
-    alert("Aliment suprimé"); 
-    window.location.reload(true); 
-}
-
-function RequestDeleteShareFreezerError(request, status, error) {
-    if (request.status == 570) {
-        alert("Nom du frigo déjà utilisé");
-    } else if (request.status == 550) {
-        alert("Problème base de donnée");
-    } else if (request.status == 400) {
-        alert("Bad format");
-    } else {
-        alert("Error");
-    }
-}
-
-/* End supression frigo partagé */
 
 SearchShareFreezer();
