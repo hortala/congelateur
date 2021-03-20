@@ -7,6 +7,9 @@ port = "";
 
 function AddFrigo() {
     var nameFrigo = prompt("Entrer le nom du nouveau frigo", "");
+    if(nameFrigo == null || nameFrigo == ""){
+        return;
+    }
     RequestCreateFrigo(nameFrigo, sessionStorage.getItem("idUser") + "/freezer");
 }
 
