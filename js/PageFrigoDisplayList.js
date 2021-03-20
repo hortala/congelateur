@@ -6,6 +6,7 @@ sessionStorage.setItem("StateDisplay", "List");
 
 /* Begin Display Foods */
 function DisplayList() {
+    sessionStorage.setItem("VTpmDisplayFood", "List");
     RequestFoodsThisFreezerDisplayList(sessionStorage.getItem("idUser") + "/" + sessionStorage.getItem("idFrigo") + "/food");
 }
 
@@ -53,5 +54,4 @@ function RequestFoodsThisFreezerDisplayListError(request, status, error) {
 }
 /* End Display Foods */
 
-DisplayList();
  

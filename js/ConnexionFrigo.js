@@ -2,6 +2,9 @@ url = sessionStorage.getItem("url");
 port = "";
 //port = ":5000/";
 
+//Variable tmp pour affichage du contenu du frigo 
+sessionStorage.setItem("VTpmDisplayFood", "Type");
+
 nbFrigo = 0;
 requestFrigo = [];
 
