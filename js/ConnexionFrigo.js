@@ -8,11 +8,9 @@ requestFrigo = [];
 /* Begin connexion Frigo */
 
 function ClickImageConnexionFrigo(position) {
-    alert(window.requestFrigo[position].mai_nom);
     sessionStorage.setItem("nomFrigo", window.requestFrigo[position].fre_name);
     sessionStorage.setItem("idFrigo", window.requestFrigo[position].fre_id);
     document.location.href = "PageFrigo.html";
-    alert("ok" + (position + 1).toString());
 }
 
 /* End connexion frigo */
@@ -114,4 +112,8 @@ function ResquestFrigosThisUserError(request, status, error) {
 }
 /*End création de la page*/
 
+
+
+
 CreateAllFrigo();
+

@@ -48,12 +48,12 @@ function RequestConnexion(mailadress, password) {
 }
 
 function ResquestConnexionSuccess(response) {
-    alert("Connexion réussis");
     var data = JSON.parse(JSON.stringify(response));
-    sessionStorage.setItem("idUser", data.id);
+    sessionStorage.setItem("idUser", data.use_id);
+    sessionStorage.setItem("nameUser", data.use_name);
+    sessionStorage.setItem("mailAdress", data.use_mailadress);
     window.location.href = 'html/ConnexionFrigo.html'
     return;
-    //return RequestFindfrigoUser(sessionStorage.getItem("idUser") + "/freezer");;
 }
 
 function ResquestConnexionError(request, status, error) {

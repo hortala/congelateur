@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Création de compte">
+    <meta name="author" content="HORTALA Florent">
+    <title>Création d'un compte</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendorMe/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendorMe/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/CreationCompte.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <div class="row">
+        <div class="col-md-3 bandeauPerso centerPerso">
+            <a class="bandeauPersoEcriture " href="Profil.html" id="UserName"></a>
+        </div>
+        <div class="col-md-6 bandeauPerso">
+           
+        </div>
+        <div class="col-md-3 bandeauPerso centerPerso">
+            <a class="btn btn-secondary " href="Profil.html" type="submit">Profil</a>
+        </div>
+    </div>
+
+    <div class="main_boxes">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 marginTop2 marginLeft2">
+
+
+                    <div class="card border-dark mb-5">
+                        <div class="card-header textBold textColorBlack centerPerso"><h2>Informations personelle</h2></div>
+                        <div class="card-body">
+                            <div>
+                                <p class="textColorBlack centerPerso"><strong><u>Nom</u></strong></p>
+                                <div id="UseName"></div>
+                                <div class="centerPerso marginTop2">
+                                    <button id="btnName" type="button" class="btn btn-dark centerPerso" onclick=UpdateInfo(this)>Modifier</button>
+                                </div>
+                            </div>
+                            
+                            <div class="marginTop10">
+                                <p class="textColorBlack centerPerso"><strong><u>Adresse mail</u></strong></p>
+                                <div id="MailAdress"></div>  
+                                <div class="centerPerso marginTop2">
+                                    <button id="btnMaildresse" type="button" class="btn btn-dark centerPerso" onclick="UpdateInfo(this)">Modifier</button>
+                                </div>                            </div>
+                              
+                            <div class="marginTop10">
+                                <p class="textColorBlack centerPerso"><strong><u>Changement du mot de passe</u></strong></p>
+        
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text textBold" id="basic-addon3">Ancien MDP</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="OldMDP" value="" aria-label="password" aria-describedby="basic-addon1"> 
+                                </div>
+                                <div class="input-group marginTop2">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text textBold" id="basic-addon2">Nouveau MDP</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="NewMdp1" value="" aria-label="password" aria-describedby="basic-addon1">   
+                                </div>
+                                <div class="input-group marginTop2">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text textBold" id="basic-addon1">Confimation MDP</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="NewMdp2" value="" aria-label="password" aria-describedby="basic-addon1">   
+                                </div>
+                                <div class="centerPerso marginTop2">
+                                    <button id="btnPassword" type="button" class="btn btn-dark centerPerso" onclick="UpdateInfo(this)">Modifier</button>
+                                </div>                            
+                            </div>
+                        </div>
+                    </div>                 
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendorMe/jquery/jquery.min.js"></script>
+    <script src="../vendorMe/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="../vendorMe/jquery-easing/jquery.easing.min.js"></script>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/AffichageUserName.js"></script>
+    <script src="../js/Profil.js"></script>
+
+</body>
+
+</html>

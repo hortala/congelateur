@@ -12,7 +12,6 @@ function ProcessDisplayType(){
     var tempTypeArray = [window.requestFoodsDisplayType[0].typ_id];
     var tempTypeNameArray = [window.requestFoodsDisplayType[0].typ_name];
     var tempType = window.requestFoodsDisplayType[0].typ_id;
-    //alert("taille entré" + window.requestFoodsDisplayType.length);
     
     for (var i = 0; i < window.requestFoodsDisplayType.length-1; i++) {
         if( tempType !== window.requestFoodsDisplayType[i+1].typ_id){
@@ -21,8 +20,6 @@ function ProcessDisplayType(){
             tempType = window.requestFoodsDisplayType[i+1].typ_id;
         }
     }
-    //alert(tempTypeNameArray[1]);
-
     
     var tempFoodArray;
     var corpsHTML = "";

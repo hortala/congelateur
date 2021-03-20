@@ -53,7 +53,6 @@ function SearchShareFreezerRequestError(request, status, error) {
 /* begin supression frigo partagé */
 
 function ClickImageDeleteShareFreezer(NumImage){    
-    alert(window.requestFreezerShare[NumImage].uin_id);
     RequestDeleteShareFreezer (window.requestFreezerShare[NumImage].uin_id, (sessionStorage.getItem("idUser") +"/userinvit"));
 }
 
