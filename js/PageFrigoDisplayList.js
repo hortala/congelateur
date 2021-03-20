@@ -38,7 +38,7 @@ function RequestFoodsThisFreezerDisplayListSucces(response) {
             " | "+ requestFoods[i].foo_weight +
             "g"+" | "+ requestFoods[i].typ_name +
             " <img src=../image/Type/"+ requestFoods[i].typ_img + " width=4%>" +
-            " | "+ "  "  + "<img src=../image/Supression.jpg onclick=ClickImage(" + i + ") width=5%>"
+            " | "+ "  "  + "<img src=../image/Supression.jpg onclick=ClickImage(" + requestFoods[i].foo_id.toString() + ") width=5%>"
             "</p>" 
     }
     document.getElementById("GenerationFood").innerHTML = corpsHTML;

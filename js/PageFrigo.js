@@ -4,10 +4,9 @@ port = "";
 
 
 /* Begin Supression d'aliments */
-
-function ClickImage(NumImage){
-   RequestDeleteFood (window.requestFoods[NumImage].foo_id, (sessionStorage.getItem("idUser") +"/"+ sessionStorage.getItem("idFrigo") + "/food"));
-}
+function ClickImage(IdFood){
+    RequestDeleteFood (IdFood, (sessionStorage.getItem("idUser") +"/"+ sessionStorage.getItem("idFrigo") + "/food"));
+ }
 
 function RequestDeleteFood(idFood, destination) {
     $.ajax({

@@ -59,7 +59,7 @@ function ProcessDisplayType(){
                     +"<td>"+ window.requestFoodsDisplayType[x].foo_name +"</td>"
                     +"<td>"+ window.requestFoodsDisplayType[x].foo_date +"</td>"
                     +"<td>"+ window.requestFoodsDisplayType[x].foo_weight +"</td>"
-                    +"<td>"+ "<img src=../image/Supression.jpg onclick=ClickImage(" + window.requestFoodsDisplayType[x].typ_id + ") width=30%></td>"
+                    +"<td>"+ "<img src=../image/Supression.jpg onclick=ClickImage(" + window.requestFoodsDisplayType[x].foo_id.toString() + ") width=30%></td>"
                     +"</tr>"
             }
         }
