@@ -11,10 +11,7 @@ function ShareFreezer(){
 }
 
 function DisplayModalShareFreezer() {
-    var modal = document.getElementById("modalShareFreezer"); // Get the modal
-
-    DisplayListeType()
-    
+    var modal = document.getElementById("modalShareFreezer"); // Get the modal    
 
     modal.style.display = "block";
     // When the user clicks anywhere outside of the modal, close it

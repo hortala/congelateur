@@ -3,14 +3,32 @@ port = "";
 //port = ":5000/";
 
 
+/* Begin Modal */
+
+function AddFrigo(){
+    DisplayModalAddFreezer()
+    return true;
+}
+
+function DisplayModalAddFreezer() {
+    var modal = document.getElementById("modalAddFreezer"); // Get the modal
+
+    modal.style.display = "block";
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            window.location.reload(false);
+        }
+    }
+}
+
+/* End Modal */
+
 /*Begin ajoue d'un frigo*/
 
-function AddFrigo() {
-    var nameFrigo = prompt("Entrer le nom du nouveau frigo", "");
-    if(nameFrigo == null || nameFrigo == ""){
-        return;
-    }
-    RequestCreateFrigo(nameFrigo, sessionStorage.getItem("idUser") + "/freezer");
+function SendAddFrigo() {
+    RequestCreateFrigo(document.getElementById("nameFrigo").value, sessionStorage.getItem("idUser") + "/freezer");
 }
 
 function RequestCreateFrigo(nameFrigo, destination) {

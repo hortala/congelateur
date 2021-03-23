@@ -45,21 +45,29 @@ function ProcessDisplayType(){
             +"<th scope=col>Nom</th>"
             +"<th scope=col>Date</th>"
             +"<th scope=col>Poids</th>"
-            +"<th scope=col>Supression</th>"
+            +"<th scope=col>Sup</th>"
+            +"<th scope=col>Modif</th>"
             +"</tr>"
             +"</thead>"
             +"<tbody>";
         var cmpt = 0;
         for (var x = 0 ; x < window.requestFoodsDisplayType.length ; x++){
             if(tempTypeArray[i] == window.requestFoodsDisplayType[x].typ_id){
+                var date = new Date(window.requestFoodsDisplayType[x].foo_date);
+                let d = new Date(2010, 7, 5);
+                let ye = new Intl.DateTimeFormat('fr', { year: 'numeric' }).format(date);
+                let mo = new Intl.DateTimeFormat('fr', { month: 'short' }).format(date);
+                let da = new Intl.DateTimeFormat('fr', { day: '2-digit' }).format(date);
+                
                 cmpt++;
                 corpsHTML = corpsHTML 
                     +"<tr>"
                     +"<th scope=row>"+ cmpt.toString() +"</th>"
                     +"<td>"+ window.requestFoodsDisplayType[x].foo_name +"</td>"
-                    +"<td>"+ window.requestFoodsDisplayType[x].foo_date +"</td>"
+                    +"<td>"+ (`${da}-${mo}-${ye}`) +"</td>"
                     +"<td>"+ window.requestFoodsDisplayType[x].foo_weight +"</td>"
                     +"<td>"+ "<img src=../image/Supression.jpg onclick=ClickImage(" + window.requestFoodsDisplayType[x].foo_id.toString() + ") width=30%></td>"
+                    +"<td>"+ "<img src=../image/Modifier.jpg onclick=ClickImageModifierFood(" + window.requestFoodsDisplayType[x].foo_id.toString() + ") width=30%></td>"
                     +"</tr>"
             }
         }

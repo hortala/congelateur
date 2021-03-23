@@ -72,7 +72,18 @@ function RequestTypesError(request, status, error) {
 }
 /* End Modal */
 
+function AffichageNomFrigo(){
+    document.getElementById("affichageName").innerHTML = "<h2>" + sessionStorage.getItem("nomFrigo") + "</h2>";
+    return;
+}
 
+function GenerationPage(){
+    AffichageNomFrigo();
+    SelectionAffichage(sessionStorage.getItem("VTpmDisplayFood"));
+    return; 
+}
+
+GenerationPage();
 
 
 

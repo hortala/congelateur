@@ -10,9 +10,14 @@ requestFrigo = [];
 
 /* Begin connexion Frigo */
 
-function ClickImageConnexionFrigo(position) {
-    sessionStorage.setItem("nomFrigo", window.requestFrigo[position].fre_name);
-    sessionStorage.setItem("idFrigo", window.requestFrigo[position].fre_id);
+function ClickImageConnexionFrigo(idFrigo) {
+    var i = 0;
+    while(window.requestFrigo[i].fre_id != idFrigo){
+        i++;
+    }
+
+    sessionStorage.setItem("nomFrigo", window.requestFrigo[i].fre_name);
+    sessionStorage.setItem("idFrigo", idFrigo);
     document.location.href = "PageFrigo.html";
 }
 
@@ -49,9 +54,9 @@ function ResquestFrigosThisUserSuccess(response) {
             corpsHTML 
             +"<h1 align=center>" + requestFrigo[i].fre_name + "</h1>" 
             +"<div class=centerPerso><img src=../image/Supression.jpg onclick=ClickImageDeleteFreezer(" + window.requestFrigo[i].fre_id.toString() + ") width=5%>"
-            +"  <img src=../image/Modifier.jpg onclick=ClickImageModifierFreezer(" + i + ") width=5%>"
+            +"  <img src=../image/Modifier.jpg onclick=ClickImageModifierFreezer(" + window.requestFrigo[i].fre_id.toString() + ") width=5%>"
             +"</div>"
-            +"<div class=centerPerso><img src=../image/Frigo/" + (i + 1).toString() + ".jpg onclick=ClickImageConnexionFrigo(" + i + ") width=50%></div>" 
+            +"<div class=centerPerso><img src=../image/Frigo/" + (i + 1).toString() + ".jpg onclick=ClickImageConnexionFrigo(" + window.requestFrigo[i].fre_id.toString() + ") width=50%></div>" 
             +"<br><br>"
     }
     document.getElementById("GenerationFrigo").innerHTML = corpsHTML;

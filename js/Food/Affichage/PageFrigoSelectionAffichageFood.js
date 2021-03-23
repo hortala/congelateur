@@ -10,5 +10,3 @@ function SelectionAffichage(typeAffichage){
     }
     return;
 }
-
-SelectionAffichage(sessionStorage.getItem("VTpmDisplayFood"));

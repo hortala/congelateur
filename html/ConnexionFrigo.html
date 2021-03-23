@@ -67,6 +67,37 @@
         </div>
     </div>
 
+    <!-- The Modal AddFrigo food-->
+    <div id="modalAddFreezer" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="TitleModal">Ajouter un frigo</h2>
+            </div>
+            <div>
+                <p class="textColorBlack"><strong>Nom du frigo</strong></p>
+                <input type="text" class="form-control" id="nameFrigo" placeholder="le frigo de toto" aria-label="Username" aria-describedby="basic-addon1">
+                <br>
+                <button class="btn btn-dark" onclick="SendAddFrigo()">Créer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal UpdateFrigo food-->
+    <div id="modalUpdateFreezer" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="TitleModal">Modification du frigo</h2>
+            </div>
+            <div>
+                <p class="textColorBlack"><strong>Nom du frigo</strong></p>
+                <input type="text" class="form-control" id="nameFrigoModif" placeholder="le frigo de toto" aria-label="Username" aria-describedby="basic-addon1">
+                <br>
+                <button class="btn btn-dark" onclick="SendUpdateFrigo()">Modifier</button>
+            </div>
+        </div>
+    </div>
+    
+
 
 
     <!-- Bootstrap core JavaScript -->

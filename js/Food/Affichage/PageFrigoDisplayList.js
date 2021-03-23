@@ -30,11 +30,16 @@ function RequestFoodsThisFreezerDisplayListSucces(response) {
     window.requestFoods = JSON.parse(JSON.stringify(response));
     var corpsHTML = "";
     for (var i = 0; i < window.requestFoods.length; i++) {
+        var date = new Date(window.requestFoods[i].foo_date);
+        let d = new Date(2010, 7, 5);
+        let ye = new Intl.DateTimeFormat('fr', { year: 'numeric' }).format(date);
+        let mo = new Intl.DateTimeFormat('fr', { month: 'short' }).format(date);
+        let da = new Intl.DateTimeFormat('fr', { day: '2-digit' }).format(date);
 
         corpsHTML =
             corpsHTML +
             "<p align=center class=textColorBlack>" + requestFoods[i].foo_name +
-            " | "+ requestFoods[i].foo_date +
+            " | "+ (`${da}-${mo}-${ye}`) +
             " | "+ requestFoods[i].foo_weight +
             "g"+" | "+ requestFoods[i].typ_name +
             " <img src=../image/Type/"+ requestFoods[i].typ_img + " width=4%>" +
