@@ -73,7 +73,7 @@ function RequestTypesError(request, status, error) {
 /* End Modal */
 
 function AffichageNomFrigo(){
-    document.getElementById("affichageName").innerHTML = "<h2>" + sessionStorage.getItem("nomFrigo") + "</h2>";
+    document.getElementById("affichageName").innerHTML = "<h2>" + sessionStorage.getItem("nomFrigo").toUpperCase() + "</h2>";
     return;
 }
 
@@ -81,6 +81,10 @@ function GenerationPage(){
     AffichageNomFrigo();
     SelectionAffichage(sessionStorage.getItem("VTpmDisplayFood"));
     return; 
+}
+
+function goOnConnexionFrigo(){
+    document.location.href = "ConnexionFrigo.html";
 }
 
 GenerationPage();

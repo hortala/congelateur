@@ -36,6 +36,7 @@
            
         </div>
         <div class="col-md-3 bandeauPerso centerPerso">
+            <a class="btn btn-secondary " href="ConnexionFrigo.html" type="submit">Retour</a>
             <a class="btn btn-secondary " href="Profil.html" type="submit">Profil</a>
         </div>
     </div>
@@ -48,7 +49,6 @@
                 <div class="col-md-6 centerPerso marginTop2" id="affichageName">
 
                 </div>
-                <div class="col-md-3"></div>
             </div>
             <div class="row marginTop2">
                 <div class="col-md-3"></div>
@@ -128,6 +128,28 @@
         </div>
     </div>
 
+    <!-- The Modal Update food-->
+    <div id="modalUpdateFood" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="TitleModal">Modification de l'aliment</h2>
+            </div>
+            <div>
+                <p class="textColorBlack"><strong>Adresse email de la personne</strong></p>
+                <input type="adresseMail" class="form-control" id="mailadress" placeholder="persone@" aria-label="Username" aria-describedby="basic-addon1">
+                <br>
+                <p class="textColorBlack"><strong>Adresse email de la personne</strong></p>
+                <input type="adresseMail" class="form-control" id="mailadress" placeholder="persone@" aria-label="Username" aria-describedby="basic-addon1">
+                <br>
+                <p class="textColorBlack"><strong>Adresse email de la personne</strong></p>
+                <input type="adresseMail" class="form-control" id="mailadress" placeholder="persone@" aria-label="Username" aria-describedby="basic-addon1">
+                <br>
+                <button class="btn btn-dark" onclick="SendShareFreezer()">Créer</button>
+            </div>
+            <div id="ModalFood"></div>
+        </div>
+    </div>
+
 
 
     <!-- Bootstrap core JavaScript -->
@@ -146,7 +168,6 @@
     <script src="../js/Utilisateur/AffichageUserName.js"></script>
     <script src="../js/Food/UpdateFood/AddFood.js"></script>
     <script src="../js/Food/UpdateFood/DeleteFood.js"></script>
-    <script src="../js/Food/UpdateFood/UpdateFood.js"></script>
     <script src="../js/Frigo/PageFrigo.js"></script>
 </body>
 

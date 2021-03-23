@@ -46,7 +46,6 @@ function ProcessDisplayType(){
             +"<th scope=col>Date</th>"
             +"<th scope=col>Poids</th>"
             +"<th scope=col>Sup</th>"
-            +"<th scope=col>Modif</th>"
             +"</tr>"
             +"</thead>"
             +"<tbody>";
@@ -67,7 +66,6 @@ function ProcessDisplayType(){
                     +"<td>"+ (`${da}-${mo}-${ye}`) +"</td>"
                     +"<td>"+ window.requestFoodsDisplayType[x].foo_weight +"</td>"
                     +"<td>"+ "<img src=../image/Supression.jpg onclick=ClickImage(" + window.requestFoodsDisplayType[x].foo_id.toString() + ") width=30%></td>"
-                    +"<td>"+ "<img src=../image/Modifier.jpg onclick=ClickImageModifierFood(" + window.requestFoodsDisplayType[x].foo_id.toString() + ") width=30%></td>"
                     +"</tr>"
             }
         }

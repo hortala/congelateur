@@ -27,25 +27,45 @@ function RequestFoodsThisFreezerDisplayList(destination) {
 }
 
 function RequestFoodsThisFreezerDisplayListSucces(response) {
-    window.requestFoods = JSON.parse(JSON.stringify(response));
+    requestFoods = JSON.parse(JSON.stringify(response));
+
+    //Création des titres du tableau
     var corpsHTML = "";
-    for (var i = 0; i < window.requestFoods.length; i++) {
-        var date = new Date(window.requestFoods[i].foo_date);
+    corpsHTML = corpsHTML
+        +"<table class="+"\""+"table table-bordered table-dark centerPerso"+"\""+">"
+        +"<thead>"
+        +"<tr>"
+        +"<th scope=col>Num</th>"
+        +"<th scope=col>Nom</th>"
+        +"<th scope=col>Date</th>"
+        +"<th scope=col>Poids</th>"
+        +"<th scope=col>Sup</th>"
+        +"</tr>"
+        +"</thead>"
+        +"<tbody>";
+
+    var cmpt = 0;
+    for (var i = 0; i < requestFoods.length; i++) {
+        cmpt++;
+        var date = new Date(requestFoods[i].foo_date);
         let d = new Date(2010, 7, 5);
         let ye = new Intl.DateTimeFormat('fr', { year: 'numeric' }).format(date);
         let mo = new Intl.DateTimeFormat('fr', { month: 'short' }).format(date);
         let da = new Intl.DateTimeFormat('fr', { day: '2-digit' }).format(date);
 
-        corpsHTML =
-            corpsHTML +
-            "<p align=center class=textColorBlack>" + requestFoods[i].foo_name +
-            " | "+ (`${da}-${mo}-${ye}`) +
-            " | "+ requestFoods[i].foo_weight +
-            "g"+" | "+ requestFoods[i].typ_name +
-            " <img src=../image/Type/"+ requestFoods[i].typ_img + " width=4%>" +
-            " | "+ "  "  + "<img src=../image/Supression.jpg onclick=ClickImage(" + requestFoods[i].foo_id.toString() + ") width=5%>"
-            "</p>" 
+        corpsHTML = corpsHTML 
+                    +"<tr>"
+                    +"<th scope=row>"+ cmpt.toString() +"</th>"
+                    +"<td>"+ requestFoods[i].foo_name +"</td>"
+                    +"<td>"+ (`${da}-${mo}-${ye}`) +"</td>"
+                    +"<td>"+ requestFoods[i].foo_weight +"</td>"
+                    +"<td>"+ "<img src=../image/Supression.jpg onclick=ClickImage(" + requestFoods[i].foo_id.toString() + ") width=10%></td>"
+                    +"</tr>"
     }
+    corpsHTML = corpsHTML 
+            +"</tbody>"
+            +"</table>"
+    
     document.getElementById("GenerationFood").innerHTML = corpsHTML;
 }
 
