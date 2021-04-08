@@ -26,7 +26,7 @@ function ProcessDisplayType(){
     
     var tempFoodArray;
     var corpsHTML = "";
-    for(var i = 0 ; i < tempTypeArray.length; i++){
+    for(var i = tempTypeArray.length-1 ; i >= 0; i--){
         //Création de la partie image et de la partie titre
         corpsHTML = corpsHTML
             +"<div class="+"\""+"card centerPerso"+"\""+">"
@@ -41,7 +41,7 @@ function ProcessDisplayType(){
             +"<table class="+"\""+"table table-bordered table-dark"+"\""+">"
             +"<thead>"
             +"<tr>"
-            +"<th scope=col>Num</th>"
+            +"<th scope=col>N°</th>"
             +"<th scope=col>Nom</th>"
             +"<th scope=col>Date</th>"
             +"<th scope=col>Poids</th>"
@@ -53,19 +53,18 @@ function ProcessDisplayType(){
         for (var x = 0 ; x < window.requestFoodsDisplayType.length ; x++){
             if(tempTypeArray[i] == window.requestFoodsDisplayType[x].typ_id){
                 var date = new Date(window.requestFoodsDisplayType[x].foo_date);
-                let d = new Date(2010, 7, 5);
-                let ye = new Intl.DateTimeFormat('fr', { year: 'numeric' }).format(date);
-                let mo = new Intl.DateTimeFormat('fr', { month: 'short' }).format(date);
+                let ye = new Intl.DateTimeFormat('fr', { year: '2-digit' }).format(date);
+                let mo = new Intl.DateTimeFormat('fr', { month: '2-digit' }).format(date);
                 let da = new Intl.DateTimeFormat('fr', { day: '2-digit' }).format(date);
                 
                 cmpt++;
                 corpsHTML = corpsHTML 
-                    +"<tr>"
+                    +"<tr class=text-break>"
                     +"<th scope=row>"+ cmpt.toString() +"</th>"
                     +"<td>"+ window.requestFoodsDisplayType[x].foo_name +"</td>"
                     +"<td>"+ (`${da}-${mo}-${ye}`) +"</td>"
                     +"<td>"+ window.requestFoodsDisplayType[x].foo_weight +"</td>"
-                    +"<td>"+ "<img src=../image/Supression.jpg onclick=ClickImage(" + window.requestFoodsDisplayType[x].foo_id.toString() + ") width=30%></td>"
+                    +"<td>"+ "<button type=button class=\"btn  btn-danger\" onclick=ClickImage(" + requestFoodsDisplayType[x].foo_id.toString() + ")>-</button>"
                     +"</tr>"
             }
         }

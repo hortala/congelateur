@@ -54,12 +54,12 @@ function RequestFoodsThisFreezerDisplayListSucces(response) {
         let da = new Intl.DateTimeFormat('fr', { day: '2-digit' }).format(date);
 
         corpsHTML = corpsHTML 
-                    +"<tr>"
+                    +"<tr class=text-break>"
                     +"<th scope=row>"+ cmpt.toString() +"</th>"
                     +"<td>"+ requestFoods[i].foo_name +"</td>"
                     +"<td>"+ (`${da}-${mo}-${ye}`) +"</td>"
                     +"<td>"+ requestFoods[i].foo_weight +"</td>"
-                    +"<td>"+ "<img src=../image/Supression.jpg onclick=ClickImage(" + requestFoods[i].foo_id.toString() + ") width=10%></td>"
+                    +"<td>"+ "<button type=button class=\"btn  btn-danger\" onclick=ClickImage(" + requestFoods[i].foo_id.toString() + ")>-</td>"
                     +"</tr>"
     }
     corpsHTML = corpsHTML 
