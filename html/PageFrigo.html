@@ -32,8 +32,7 @@
         <div class="col-md-3 bandeauPerso centerPerso">
             <a class="bandeauPersoEcriture " href="Profil.html" id="UserName"></a>
         </div>
-        <div class="col-md-6 bandeauPerso">
-           
+        <div class="col-md-6 bandeauPerso centerPerso">
         </div>
         <div class="col-md-3 bandeauPerso centerPerso">
             <a class="btn btn-secondary " href="ConnexionFrigo.html" type="submit">Retour</a>
@@ -60,6 +59,9 @@
                 </div>
                 <div class="col-md-3">
                     <div class="row marginTop10">
+                        <button type="button" class="btn btn-dark" onclick="HistorisationSupressionFood()">Aliments suprimés</button>
+                    </div>
+                    <div class="row marginTop5">
                         <button type="button" class="btn btn-dark" onclick="ShareFreezer()">Partager le frigo</button>
                     </div>
                     <div class="row marginTop5">
@@ -150,6 +152,21 @@
         </div>
     </div>
 
+    <!-- The Modal Historisation des aliments-->
+    <div id="modalHistorisationAliments" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="TitleModal ">Historique de supression des aliments</h2>
+            </div>
+            <div>
+                
+                    <div id="AffichageHistorisationFood"></div>
+               
+
+            </div>
+            <div id="ModalHistorisationDesAliments"></div>
+        </div>
+    </div>
 
 
     <!-- Bootstrap core JavaScript -->
@@ -169,6 +186,7 @@
     <script src="../js/Food/UpdateFood/AddFood.js"></script>
     <script src="../js/Food/UpdateFood/DeleteFood.js"></script>
     <script src="../js/Frigo/PageFrigo.js"></script>
+    <script src="../js/Food/HistorisationFood.js"></script>
 </body>
 
 </html>
