@@ -51,6 +51,9 @@ function RequestConnexion(mailadress, password) {
 
 function ResquestConnexionSuccess(response) {
     var data = JSON.parse(JSON.stringify(response));
+
+    sessionStorage.setItem("droit", data.use_droit)
+    sessionStorage.setItem("droitSuperUser", data.use_droitsuperuser)
     sessionStorage.setItem("idUser", data.use_id);
     sessionStorage.setItem("nameUser", data.use_name);
     sessionStorage.setItem("mailAdress", data.use_mailadress);

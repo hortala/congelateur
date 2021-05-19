@@ -188,10 +188,12 @@ function ResquestUpateMDPError(request, status, error) {
     return false;
 }
 
+let DroitSuperUtilisateur = "";
+if(DroitSuperUtilisateur == true){
+    DroitSuperUtilisateur = sessionStorage.getItem("droitSuperUser");
+}
 
-
-
-corpsHTMLInputUseName = "<input type=text class=form-control id=UseNameInput value="+ sessionStorage.getItem("nameUser") +" aria-label=Username aria-describedby=basic-addon1>";
+corpsHTMLInputUseName = "<input type=text class=form-control id=UseNameInput value=" + sessionStorage.getItem("nameUser") +" aria-label=Username aria-describedby=basic-addon1>";
 corpsHTMLInputMailAdress = "<input type=text class=form-control id=MailAdressInput value="+ sessionStorage.getItem("mailAdress") +" aria-label=MailAdress aria-describedby=basic-addon1>";
 document.getElementById("UseName").innerHTML = corpsHTMLInputUseName;
 document.getElementById("MailAdress").innerHTML = corpsHTMLInputMailAdress;
