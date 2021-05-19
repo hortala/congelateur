@@ -3,9 +3,10 @@ port = "";
 sessionStorage.setItem("StateDisplay", "List");
 //port = ":5000/";
 
-
 /* Begin Display Foods */
 function DisplayList() {
+    $("#btnDisplayListFood").prop('disabled', true);
+    $("#btnDisplayTypeFood").prop('disabled', false);
     sessionStorage.setItem("VTpmDisplayFood", "List");
     RequestFoodsThisFreezerDisplayList(sessionStorage.getItem("idUser") + "/" + sessionStorage.getItem("idFrigo") + "/food");
 }
@@ -59,7 +60,7 @@ function RequestFoodsThisFreezerDisplayListSucces(response) {
                     +"<td>"+ requestFoods[i].foo_name +"</td>"
                     +"<td>"+ (`${da}-${mo}-${ye}`) +"</td>"
                     +"<td>"+ requestFoods[i].foo_weight +"</td>"
-                    +"<td>"+ "<button type=button class=\"btn  btn-danger\" onclick=ClickImage(" + requestFoods[i].foo_id.toString() + ")>-</td>"
+                    +"<td>"+ "<button type=button class=\"btn  btn-danger btnDeleteFood\" onclick=DeleteFood(" + requestFoods[i].foo_id.toString() + ")>-</td>"
                     +"</tr>"
     }
     corpsHTML = corpsHTML 
@@ -77,6 +78,7 @@ function RequestFoodsThisFreezerDisplayListError(request, status, error) {
     }
     return false;
 }
+
 /* End Display Foods */
 
  

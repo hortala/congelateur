@@ -29,6 +29,7 @@ function DisplayModalUpdateFreezer() {
 /*Begin Update d'un frigo*/
 
 function SendUpdateFrigo(){
+    $("#btnModifFreezer").prop('disabled', true)
     RequestUpdateFrigo(window.idFrigo, document.getElementById("nameFrigoModif").value, sessionStorage.getItem("idUser") + "/freezer");
 }
 
@@ -50,6 +51,7 @@ function RequestUpdateFrigo(idFrigo, newNameFrigo, destination) {
 }
 
 function ResquestUpdateFrigoSuccess() {
+    $("#btnModifFreezer").prop('disabled', true);
     $(".btnUpdateFreezer").prop('disabled', false);
     
     alert("Frigo modifier");
@@ -57,6 +59,7 @@ function ResquestUpdateFrigoSuccess() {
 }
 
 function ResquestUpdateFrigoError(request, status, error) {
+    $("#btnModifFreezer").prop('disabled', true);
     $(".btnUpdateFreezer").prop('disabled', false);
 
     if (request.status == 570) {

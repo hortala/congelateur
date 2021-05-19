@@ -4,6 +4,8 @@ port = "";
 
 /* Begin Display Foods Type */
 function DisplayType() {
+    $("#btnDisplayListFood").prop('disabled', false);
+    $("#btnDisplayTypeFood").prop('disabled', true);
     sessionStorage.setItem("VTpmDisplayFood", "Type");
     RequestFoodsThisFreezerDisplayType(sessionStorage.getItem("idUser") + "/" + sessionStorage.getItem("idFrigo") + "/food");
 }
@@ -64,7 +66,7 @@ function ProcessDisplayType(){
                     +"<td>"+ window.requestFoodsDisplayType[x].foo_name +"</td>"
                     +"<td>"+ (`${da}-${mo}-${ye}`) +"</td>"
                     +"<td>"+ window.requestFoodsDisplayType[x].foo_weight +"</td>"
-                    +"<td>"+ "<button type=button class=\"btn  btn-danger\" onclick=ClickImage(" + requestFoodsDisplayType[x].foo_id.toString() + ")>-</button>"
+                    +"<td>"+ "<button type=button class=\"btn  btn-danger btnDeleteFood\" onclick=DeleteFood(" + requestFoodsDisplayType[x].foo_id.toString() + ")>-</button>"
                     +"</tr>"
             }
         }

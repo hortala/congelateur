@@ -2,6 +2,8 @@ url = sessionStorage.getItem("url");
 port = "";
 
 function SendAddFood(){
+    $("#btnAddFood").prop("disabled", true);
+
     var nameFood = document.getElementById("NameFood").value;
     var poids = document.getElementById("poids").value;
     var idType = document.getElementById("listeType").value;   
@@ -41,10 +43,12 @@ function RequestCreateFood(nameFood, poids, type, date, destination) {
 }
 
 function ResquestRequestCreateFoodSuccess() {
+    $("#btnAddFood").prop("disabled", false);
     alert("Aliment ajouté");        
 }
 
 function ResquestRequestCreateFoodError(request, status, error) {
+    $("#btnAddFood").prop("disabled", false);
     if (request.status == 570) {
         alert("Nom du frigo déjà utilisé");
     } else if (request.status == 550) {

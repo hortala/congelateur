@@ -52,10 +52,10 @@
             <div class="row marginTop2">
                 <div class="col-md-3"></div>
                 <div class="col-md-3 centerPerso">
-                    <button type="button" class="btn btn-dark" onclick="DisplayList()">Affichage listes d'aliments</button>
+                    <button type="button" class="btn btn-dark" id="btnDisplayListFood" onclick="DisplayList()">Affichage listes d'aliments</button>
                 </div>
                 <div class="col-md-3 centerPerso">
-                    <button type="button" class="btn btn-dark" onclick="DisplayType()">Affichage par types d'aliments</button>
+                    <button type="button" class="btn btn-dark" id="btnDisplayTypeFood" onclick="DisplayType()">Affichage par types d'aliments</button>
                 </div>
                 <div class="col-md-3">
                     <div class="row marginTop10">
@@ -108,7 +108,7 @@
                 </div>
                 <br>
                 <br>
-                <button class="btn btn-dark" onclick="SendAddFood()">Créer</button>
+                <button class="btn btn-dark" id="btnAddFood" onclick="SendAddFood()">Créer</button>
             </div>
             <div id="ModalFood"></div>
         </div>

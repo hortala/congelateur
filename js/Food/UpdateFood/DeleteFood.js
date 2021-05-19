@@ -1,7 +1,8 @@
 url = sessionStorage.getItem("url");
 port = "";
 
-function ClickImage(IdFood){
+function DeleteFood(IdFood){
+    $(".btnDeleteFood").prop('disabled',true);
     RequestDeleteFood (IdFood, (sessionStorage.getItem("idUser") +"/"+ sessionStorage.getItem("idFrigo") + "/food"));
  }
 
@@ -23,11 +24,13 @@ function RequestDeleteFood(idFood, destination) {
 }
 
 function RequestDeleteFoodSuccess() {
+    $(".btnDeleteFood").prop('disabled',false);
     alert("Aliment suprimé"); 
     window.location.reload(true); 
 }
 
 function RequestDeleteFoodError(request, status, error) {
+    $(".btnDeleteFood").prop('disabled',false);
     if (request.status == 570) {
         alert("Nom du frigo déjà utilisé");
     } else if (request.status == 550) {

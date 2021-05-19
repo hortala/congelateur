@@ -79,7 +79,7 @@ function RequestHystorisationFoodSucces(response) {
                     +"<td>"+ data[i].hsf_name +"</td>"
                     +"<td>"+ (`${da}-${mo}-${ye}`) +"</td>"
                     +"<td>"+ data[i].hsf_weight +"</td>"
-                    +"<td>"+ "<button type=button class=\"btn  btn-primary\" onclick=RestaurationFood(" + data[i].hsf_id.toString() + ")>+</td>"
+                    +"<td>"+ "<button type=button class=\"btn  btn-primary btnRestaurationFood\" onclick=RestaurationFood(" + data[i].hsf_id.toString() + ")>+</td>"
                     +"</tr>"
     }
     corpsHTML = corpsHTML 
@@ -101,6 +101,7 @@ function RequestHystorisationFoodError(request, status, error) {
 /* End Modal */
 
 function RestaurationFood(idHsf){
+    $(".btnRestaurationFood").prop('disabled', true);
     RequestRestaurationFood(sessionStorage.getItem("idUser") +"/"+ sessionStorage.getItem("idFrigo") +"/"+ idHsf + "/restauration")
 }
 
@@ -121,10 +122,13 @@ function RequestRestaurationFood(destination) {
 }
 
 function RequestRestaurationFoodSucces(response) {
+    $(".btnRestaurationFood").prop('disabled', false);
     alert("Aliment restauré")
 }
 
 function RequestRestaurationFoodError(request, status, error) {
+    $(".btnRestaurationFood").prop('disabled', false);
+    
     if (request.status == 520) {
         alert("Pas d'aliment suprimé");
     } else {
