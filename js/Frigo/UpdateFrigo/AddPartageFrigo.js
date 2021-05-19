@@ -26,6 +26,7 @@ function DisplayModalShareFreezer() {
 /* End Modal */
 
 function SendShareFreezer(){
+    $("#btnPartageFrigo").prop('disabled', true);
     sessionStorage.setItem("mailadress", document.getElementById("mailadress").value);
     RequestShareFreezer(sessionStorage.getItem("idUser") + "/" +sessionStorage.getItem("idFrigo") + "/userinvit");
     return;
@@ -49,11 +50,13 @@ function RequestShareFreezer(destination) {
 }
 
 function RequestShareFreezerSuccess() {
+    $("#btnPartageFrigo").prop('disabled', false);
     alert("Partage éffectué");
     return true;
 }
 
 function RequestShareFreezerError(request, status, error) {
+    $("#btnPartageFrigo").prop('disabled', false);
     if (request.status == 570) {
         alert("Nom du frigo déjà utilisé");
     } else if (request.status == 550) {

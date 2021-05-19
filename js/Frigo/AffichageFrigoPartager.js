@@ -34,10 +34,10 @@ function SearchShareFreezerRequestSucces(response) {
 
     for (var i = 0; i < window.requestFreezerShare.length; i++) {
 
-        corpsHTMLListe = corpsHTMLListe +
-            "<tr><td>" + window.requestFreezerShare[i].fre_name +"</td>"+
-            "<td>" + window.requestFreezerShare[i].use_mailadress + "</td>"+
-            "<td><img src=../image/Supression.jpg onclick=ClickImageDeleteShareFreezer(" + window.requestFreezerShare[i].uin_id + ") width=30%></td></tr>";
+        corpsHTMLListe = corpsHTMLListe 
+            + "<tr><td>" + window.requestFreezerShare[i].fre_name +"</td>"
+            + "<td>" + window.requestFreezerShare[i].use_mailadress + "</td>"
+            + "<td><button type=button class=\"btn  btn-danger btnDeletePartageFreezer\" onclick=ClickImageDeleteShareFreezer(" + window.requestFreezerShare[i].uin_id + ")>-</button></td>";
     }
     corpsHTMLListe = corpsHTMLListe + "</tbody></table>";
     document.getElementById("FrigoPartager").innerHTML = corpsHTMLListe;

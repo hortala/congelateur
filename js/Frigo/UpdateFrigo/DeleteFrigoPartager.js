@@ -1,6 +1,7 @@
 url = sessionStorage.getItem("url");
 
 function ClickImageDeleteShareFreezer(idUserInvit){    
+    $(".btnDeletePartageFreezer").prop('disabled', true);
     RequestDeleteShareFreezer (idUserInvit, (sessionStorage.getItem("idUser") +"/userinvit"));
 }
 
@@ -22,11 +23,13 @@ function RequestDeleteShareFreezer(idUserInvit, destination) {
 }
 
 function RequestDeleteShareFreezerSuccess() {
+    $(".btnDeletePartageFreezer").prop('disabled', false);
     alert("Frigo partagé suprimé"); 
     window.location.reload(true); 
 }
 
 function RequestDeleteShareFreezerError(request, status, error) {
+    $(".btnDeletePartageFreezer").prop('disabled', false);
     if (request.status == 570) {
         alert("Nom du frigo déjà utilisé");
     } else if (request.status == 550) {
