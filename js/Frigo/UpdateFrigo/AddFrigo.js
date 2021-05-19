@@ -28,6 +28,8 @@ function DisplayModalAddFreezer() {
 /*Begin ajoue d'un frigo*/
 
 function SendAddFrigo() {
+    $("#btnAddFreezer").prop('disabled', true);
+    
     RequestCreateFrigo(document.getElementById("nameFrigo").value, sessionStorage.getItem("idUser") + "/freezer");
 }
 
@@ -49,11 +51,14 @@ function RequestCreateFrigo(nameFrigo, destination) {
 }
 
 function ResquestCreateFrigoSuccess() {
+    $("#btnAddFreezer").prop('disabled', false);
     alert("Frigo crée");
     window.location.reload(false);
 }
 
 function ResquestCreateFrigoError(request, status, error) {
+    $("#btnAddFreezer").prop('disabled', false);
+
     if (request.status == 570) {
         alert("Nom du frigo déjà utilisé");
     } else if (request.status == 550) {

@@ -53,8 +53,9 @@ function ResquestFrigosThisUserSuccess(response) {
         corpsHTML =
             corpsHTML 
             +"<h1 align=center>" + requestFrigo[i].fre_name + "</h1>" 
-            +"<div class=centerPerso><img src=../image/Supression.jpg onclick=ClickImageDeleteFreezer(" + window.requestFrigo[i].fre_id.toString() + ") width=5%>"
-            +"  <img src=../image/Modifier.jpg onclick=ClickImageModifierFreezer(" + window.requestFrigo[i].fre_id.toString() + ") width=5%>"
+            +"<div class=centerPerso>"
+            +"<button type=button class=\"btn  btn-danger btnDeleteFreezer\" id=btnDeleteFreezer onclick=ClickImageDeleteFreezer(" + window.requestFrigo[i].fre_id.toString() + ")>Suprimer</button>"
+            +"<button type=button class=\"btn btn-warning btnUpdateFreezer\" id=btnUpdateFreezer onclick=ClickImageModifierFreezer(" + window.requestFrigo[i].fre_id.toString() + ")>Modifier</button>"
             +"</div>"
             +"<div class=centerPerso><img src=../image/Frigo/" + (i + 1).toString() + ".jpg onclick=ClickImageConnexionFrigo(" + window.requestFrigo[i].fre_id.toString() + ") width=50%></div>" 
             +"<br><br>"
@@ -77,6 +78,8 @@ function ResquestFrigosThisUserError(request, status, error) {
     return false;
 }
 /*End création de la page*/
+
+
 
 CreateAllFrigo();
 

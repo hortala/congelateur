@@ -1,5 +1,5 @@
-//sessionStorage.setItem("url", "http://@localhost:5000/");
-sessionStorage.setItem("url", "https://congelateur.herokuapp.com/");
+sessionStorage.setItem("url", "http://@localhost:5000/");
+//sessionStorage.setItem("url", "https://congelateur.herokuapp.com/");
 url = sessionStorage.getItem("url");
 port = "";
 //port = ":5000/";
@@ -7,6 +7,7 @@ port = "";
 destinationConnexion = "connexion/client";
 
 function Connexion() {
+    $("#btnConnexion").prop('disabled', true);
     VerificationConnexion(document.getElementById('mailadress').value, document.getElementById('password').value);
 }
 
@@ -25,6 +26,7 @@ function VerificationChamp(mailadress, password) {
         } else {
             alert("Champ mot de passe non remplie");
         }
+        $("#btnConnexion").prop('disabled', false);
         return false
     }
     return true;
@@ -52,11 +54,16 @@ function ResquestConnexionSuccess(response) {
     sessionStorage.setItem("idUser", data.use_id);
     sessionStorage.setItem("nameUser", data.use_name);
     sessionStorage.setItem("mailAdress", data.use_mailadress);
+
+    $("#btnConnexion").prop('disabled', false)
+
     window.location.href = 'html/ConnexionFrigo.html'
     return;
 }
 
 function ResquestConnexionError(request, status, error) {
+    $("#btnConnexion").prop('disabled', false)
+    
     if (request.status == 560) {
         alert("Mauvaise Adresse mail")
     } else if (request.status == 570) {
@@ -70,5 +77,6 @@ function ResquestConnexionError(request, status, error) {
 }
 
 function GoCreateAccount() {
+    
     document.location.href = "html/CreationCompte.html";
 }

@@ -5,6 +5,8 @@ port = "";
 destination = "user";
 
 function SendInformation() {
+    $("#btnCreateAccountSend").prop('disabled', true);
+
     var nom = document.getElementById("nom").value;
     var adressMail = document.getElementById("adresseMail").value;
     var pw1 = document.getElementById("password1").value;
@@ -18,6 +20,7 @@ function SendInformation() {
 }
 
 function Verification(nom, pw1, pw2, adressMail) {
+    $("#btnCreateAccountSend").prop('disabled', false);
     if (!isNaN(nom) || !isNaN(pw1) || !isNaN(pw2) || !isNaN(adressMail)) { // Si un des champs est vide
         if (!isNaN(nom)) { // Nom non remplie
             alert("Champ Nom non remplie");
@@ -32,6 +35,8 @@ function Verification(nom, pw1, pw2, adressMail) {
         if (!isNaN(adressMail)) {
             alert("Champ adresse mail non remplie");
         }
+        
+            
         return false;
     } else if (pw1 != pw2) {
         alert("mot de passe diférent");
@@ -62,11 +67,15 @@ function RequestCreateUser(nom, pw1, adressMail) {
 }
 
 function ResquestCreateUserSuccess() {
+    $("#btnCreateAccountSend").prop('disabled', false);
+
     document.location.href = "../index.html";
     alert("Compte crée");
 }
 
 function ResquestCreateUserError(request, status, error) {
+    $("#btnCreateAccountSend").prop('disabled', false);
+
     if (request.status == 570) {
         alert("Email déja utilisé");
     } else if (request.status == 550) {

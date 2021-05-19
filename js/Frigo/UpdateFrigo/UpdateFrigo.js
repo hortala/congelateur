@@ -4,6 +4,8 @@ port = "";
 /* Begin Modal */
 
 function ClickImageModifierFreezer(idFrigo){
+    $(".btnUpdateFreezer").prop('disabled', true);
+
     window.idFrigo = idFrigo;
     DisplayModalUpdateFreezer()
     return true;
@@ -48,11 +50,15 @@ function RequestUpdateFrigo(idFrigo, newNameFrigo, destination) {
 }
 
 function ResquestUpdateFrigoSuccess() {
+    $(".btnUpdateFreezer").prop('disabled', false);
+    
     alert("Frigo modifier");
     window.location.reload(false);
 }
 
 function ResquestUpdateFrigoError(request, status, error) {
+    $(".btnUpdateFreezer").prop('disabled', false);
+
     if (request.status == 570) {
         alert("Nom du frigo déjà utilisé");
     } else if (request.status == 550) {

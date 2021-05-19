@@ -2,6 +2,7 @@ url = sessionStorage.getItem("url");
 port = "";
 
 function ClickImageDeleteFreezer(idFrigo){
+    $(".btnDeleteFreezer").prop('disabled', true);
     RequestDeleteFreezer (idFrigo, (sessionStorage.getItem("idUser") +"/freezer"));
 }
 
@@ -23,11 +24,14 @@ function RequestDeleteFreezer(idFreezer, destination) {
 }
 
 function RequestDeleteFreezerSuccess() {
+    $(".btnDeleteFreezer").prop('disabled', false);
     alert("Frigo suprimé"); 
     window.location.reload(true); 
 }
 
 function RequestDeleteFreezerError(request, status, error) {
+    $(".btnDeleteFreezer").prop('disabled', false);
+
     if (request.status == 570) {
         alert("Nom du frigo déjà utilisé");
     } else if (request.status == 550) {
