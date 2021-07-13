@@ -49,7 +49,7 @@ function RequestFoodsThisFreezerDisplayListSucces(response) {
     for (var i = 0; i < requestFoods.length; i++) {
         cmpt++;
         var date = new Date(requestFoods[i].foo_date);
-        let d = new Date(2010, 7, 5);
+        
         let ye = new Intl.DateTimeFormat('fr', { year: 'numeric' }).format(date);
         let mo = new Intl.DateTimeFormat('fr', { month: 'short' }).format(date);
         let da = new Intl.DateTimeFormat('fr', { day: '2-digit' }).format(date);
