@@ -1,18 +1,17 @@
 url = sessionStorage.getItem("url");
 port = "";
 
+idUserAddElement = ""
 //Ouverture du modal pour renseigner l'aliments a crée
-function AddElementDisplayModal(){
+function AddElementDisplayModal(idUser){
+    idUserAddElement = idUser
     DisplayModalAddElement();
 }
 
 /* Begin Modal */
 
 function DisplayModalAddElement() {
-    var modal = document.getElementById("modalAddElement"); // Get the modal
-
-    //DisplayListeType()
-    
+    var modal = document.getElementById("modalAddElement"); // Get the modal    
 
     modal.style.display = "block";
     // When the user clicks anywhere outside of the modal, close it
@@ -32,7 +31,7 @@ function SendAddElement(){
     var description = document.getElementById("descriptionElementID").value;   
 
     if (Verification(nameElement)) {
-        RequestCreateElement(nameElement, poids, description, (sessionStorage.getItem("idUser") + "/addElementListeCourse"));
+        RequestCreateElement(nameElement, poids, description, (idUserAddElement + "/addElementListeCourse"));
     } else {
         alert('attention saisie incorect');
         return;
