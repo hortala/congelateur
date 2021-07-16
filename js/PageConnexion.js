@@ -1,5 +1,5 @@
-//sessionStorage.setItem("url", "http://@localhost:5000/");
-sessionStorage.setItem("url", "https://congelateur.herokuapp.com/");
+sessionStorage.setItem("url", "http://@localhost:5000/");
+//sessionStorage.setItem("url", "https://congelateur.herokuapp.com/");
 url = sessionStorage.getItem("url");
 port = "";
 //port = ":5000/";
@@ -15,7 +15,6 @@ function VerificationConnexion(mailadress, password) {
     if (!VerificationChamp(mailadress, password)) {
         return false;
     }
-
     RequestConnexion(mailadress, password);
 }
 
@@ -66,13 +65,15 @@ function ResquestConnexionSuccess(response) {
 
 function ResquestConnexionError(request, status, error) {
     $("#btnConnexion").prop('disabled', false)
-    
-    if (request.status == 560) {
-        alert("Mauvaise Adresse mail")
+    if(request.status == 400){
+        alert("Identifiant ou mot de passe érroné")
+    }
+    else if (request.status == 560) {
+        alert("Identifiant ou mot de passe érroné")
     } else if (request.status == 570) {
-        alert("Mauvais mot de passe");
-    } else if (request.status == 400) {
-        alert("Bad format");
+        alert("Identifiant ou mot de passe érroné")
+    } else if (request.status == 580) {
+        alert("Vous n'avez pas les droits pour utiliser cette application");
     } else {
         alert("Error");
     }

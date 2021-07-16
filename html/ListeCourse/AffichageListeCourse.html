@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Frigo">
+    <meta name="author" content="HORTALA Florent">
+    <title>Connexion Frigo</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../vendorMe/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../../vendorMe/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/main.css" rel="stylesheet">
+    <link href="../../css/ConnexionFrigo.css" rel="stylesheet">
+
+</head>
+
+<body >
+    <div id="page-top"></div>
+
+    <div class="row">
+        <div class="col-md-3 bandeauPerso centerPerso">
+            <a class="bandeauPersoEcriture " href="../Profil.html" id="UserName"></a>
+        </div>
+        <div class="col-md-6 bandeauPerso divBoutonAdministrateur">
+            <a class="btn btn-secondary " href="../ConnexionFrigo.html" type="submit">Mes frigos</a>
+        </div>
+        <div class="col-md-3 bandeauPerso centerPerso">
+            <a class="btn btn-secondary " href="../Profil.html" type="submit">Profil</a>
+        </div>
+    </div>
+
+    <div class="main_boxes">
+        <div class="container-fluid">
+            <div class="row marginTop2">
+                <div class="col-md-3"></div>
+                <div class="col-md-6"></div>
+                <div class="col-md-3">
+                    <div class="row marginTop5">
+                        <button type="button" class="btn btn-dark" onclick="AddElementDisplayModal()">Ajouter un element</button>
+                    </div>                    
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 centerPerso">
+                    <div id="displayListeCouseID" class="marginTop5">
+
+                    </div>
+                </div>
+                <div class="col-md-3"></div>                
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- The Modal Add Element-->
+    <div id="modalAddElement" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="TitleModal">Ajoue d'un element</h2>
+            </div>
+            <div>
+                <br>
+                <p class="textColorBlack"><strong>Nom de l'element</strong></p>
+                <input type="text" class="form-control" id="nomElementID" placeholder="boeuf" aria-label="Username" aria-describedby="basic-addon1">
+                <br>
+                <p class="textColorBlack"><strong>Poids de l'aliment en (gramme "facultatif")</strong></p>
+                <input type="number" class="form-control" id="poidsElementID" placeholder="100" aria-label="Username" aria-describedby="basic-addon1">
+                <br>
+                <p class="textColorBlack"><strong>Description</strong></p>
+                <input type="text" class="form-control" id="descriptionElementID" placeholder="a voir" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <br>
+                <br>
+                <button class="btn btn-dark" id="btnAddElementID" onclick="SendAddElement()">Créer</button>
+            </div>
+            <div id="ModalAddElementID"></div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../../vendorMe/jquery/jquery.min.js"></script>
+    <script src="../../vendorMe/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="../../vendorMe/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- javascript -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/Utilisateur/AffichageUserName.js"></script>
+    <script src="../../js/ListeCourse/AddElementListeCourse.js"></script>
+    <script src="../../js/Admin/mainAdmin.js"></script>
+    <script src=""></script>
+
+</body>
+
+</html>

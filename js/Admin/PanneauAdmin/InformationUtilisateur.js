@@ -36,7 +36,8 @@ function ResquestRequestGetInfosAllUserSuccess(response) {
     let thUseMail = $("<th>").attr('scope', 'col').text("Adresse mail")
     let thUseDroit = $("<th>").attr('scope', 'col').text("Droit de l'utilisateur")
     let thVisualisation = $("<th>").attr('scope', 'col')
-    trInfosUtilisateurHead.append(thUseID, thUseName, thUseMail, thUseDroit, thVisualisation)
+    let thSupressionUser = $("<th>").attr('scope', 'col')
+    trInfosUtilisateurHead.append(thUseID, thUseName, thUseMail, thUseDroit, thVisualisation, thSupressionUser)
     tHeadInfosUtilisateur.append(trInfosUtilisateurHead)
 
     let tBodyInfosUtilisateur = $("<tbody>")
@@ -49,7 +50,8 @@ function ResquestRequestGetInfosAllUserSuccess(response) {
         let tdUseMail = $("<td>").text(response[i].use_mailadress)
         let tdUseDroit = $("<td>").html(response[i].use_droit + " <button type=button class=\"btn  btn-primary btn-visualisationUserFood\" id=SwitchDroitUserID_"+ response[i].use_id +" onclick=SwitchDroitUser(" + response[i].use_id + ")>-></td>")
         let tdVisualisation = $("<td>").html("<button type=button class=\"btn  btn-primary btn-visualisationUserFood\" id=visualisationUserFood_"+ response[i].use_id +" onclick=VisualisationFoodUser(" + response[i].use_id + ")>?</td>")
-        trInfosUtilisateurBody.append(tdUseId, tdUseName, tdUseMail, tdUseDroit, tdVisualisation)
+        let tdSupressionUser = $("<td>").html("<button type=button class=\"btn  btn-danger btnDeleteFood\" id=DeleteUserID_"+ response[i].use_id +" onclick=DeleteUser(" + response[i].use_id + ")>-</td>")
+        trInfosUtilisateurBody.append(tdUseId, tdUseName, tdUseMail, tdUseDroit, tdVisualisation, tdSupressionUser)
         tBodyInfosUtilisateur.append(trInfosUtilisateurBody)
     }
 
@@ -78,7 +80,7 @@ function ResquestRequestGetInfosAllUserError(request, status, error) {
 
 function RequestSwitchUserDroit( userIDSwitch, destination) {
     $.ajax({
-        type: "POST",
+        type: "PUT",
         url: url + port + destination,
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
@@ -115,19 +117,61 @@ function RequestSwitchUserDroitError(request, status, error) {
 
 /* End switch droit user */
 
+/* Begin delete user */
+
+function RequestDeleteUser( userIDDelete, destination) {
+    $.ajax({
+        type: "DELETE",
+        url: url + port + destination,
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: `{"idUserDelete": "${userIDDelete}"}`,
+        asynch: true,
+        success: function(response) {
+            RequestDeleteUserSuccess(response);
+        },
+        error: function(request, status, error) {
+            RequestDeleteUserError(request, status, error);
+        }
+    });
+}
+
+function RequestDeleteUserSuccess(response) {
+    window.location.reload(true); 
+}
+
+function RequestDeleteUserError(request, status, error) {
+    $("#btnAddFreezer").prop('disabled', false);
+
+    if (request.status == 570) {
+        alert("Nom du frigo déjà utilisé");
+    } else if (request.status == 550) {
+        alert("Problème base de donnée");
+    } else if (request.status == 520) {
+        alert("Utilisateur inexistant");
+    } else if (request.status == 400) {
+        alert("Bad format");
+    } else {
+        alert("Error");
+    }
+}
+
+/* End delete user */
+
+
 function VisualisationFoodUser(userID){
     $("#visualisationUserFood_" + userID).attr('disabled', 'true')
-
-    alert("Id de l'utilisateur : " + userID)
-
 }
 
 function SwitchDroitUser(userIDSwitch){
     $("#SwitchDroitUserID_" + userIDSwitch).attr('disabled', 'true')
-
-    alert("id de l'utilisateur switch = " + userIDSwitch)
-
     RequestSwitchUserDroit(userIDSwitch, sessionStorage.getItem("idUser") + "/switchDroitUser")
+}
+
+function DeleteUser(userIDDelete){
+    $("#DeleteUserID_" + userIDDelete).attr('disabled', 'true')
+    alert("Supression de l'utilisateur en cours")
+    RequestDeleteUser(userIDDelete, sessionStorage.getItem("idUser") + "/DeleteUser")
 }
 
 
