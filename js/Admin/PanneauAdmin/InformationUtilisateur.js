@@ -43,7 +43,6 @@ function ResquestRequestGetInfosAllUserSuccess(response) {
     let tBodyInfosUtilisateur = $("<tbody>")
 
     for(let i = 0 ; i < response.length ; i++){
-        console.log(response[i])
         let trInfosUtilisateurBody = $("<tr>")
         let tdUseId = $("<td>").attr('hidden', 'true').text(response[i].use_id)
         let tdUseName = $("<td>").text(response[i].use_name)
