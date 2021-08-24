@@ -92,16 +92,19 @@
             <div class="modal-header">
                 <h2 id="TitleModal">Ajoue d'un aliment</h2>
             </div>
-            <div>
+            <div>ZZ
                 <br>
                 <p class="textColorBlack"><strong>Nom de l'aliment</strong></p>
-                <input type="text" class="form-control" id="NameFood" placeholder="boeuf" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" id="AddNameFoodID" placeholder="boeuf" aria-label="Username" aria-describedby="basic-addon1">
+                <button class="btn btn-info" id="btnResetAddFoodName" onclick="resetAddFoodNom()">Reset</button>
                 <br>
                 <p class="textColorBlack"><strong>Date</strong></p>
-                <input class="form-control" type="date" placeholder="1576-02-15" id="date">
+                <input class="form-control" id="dateAddFoodID" type="date" placeholder="1576-02-15" id="date">
+                <button class="btn btn-info" id="btnResetAddFoodDate" onclick="resetAddFoodDate()">Reset</button>
                 <br>
                 <p class="textColorBlack"><strong>Poids de l'aliment en (gramme)</strong></p>
-                <input type="number" class="form-control" id="poids" placeholder="100" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="number" class="form-control" id="poidsAddFoodID" placeholder="100" aria-label="Username" aria-describedby="basic-addon1">
+                <button class="btn btn-info" id="btnResetAddFoodPoids" onclick="resetAddFoodPoids()">Reset</button>
                 <br>
                 <p class="textColorBlack"><strong>Type d'aliment</strong></p>
                 <div id="TypeListe">

@@ -22,7 +22,6 @@ function RequestDeleteElementListeCourse(idListe, destination) {
 
 function RequestDeleteElementListeCourseSuccess() {
     $(".btnDeleteElementListCourse").prop('disabled',false);
-    alert("Element suprimé"); 
     window.location.reload(true); 
 }
 

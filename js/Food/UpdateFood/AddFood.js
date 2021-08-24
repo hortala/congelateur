@@ -4,10 +4,10 @@ port = "";
 function SendAddFood(){
     $("#btnAddFood").prop("disabled", true);
 
-    var nameFood = document.getElementById("NameFood").value;
-    var poids = document.getElementById("poids").value;
+    var nameFood = document.getElementById("AddNameFoodID").value;
+    var poids = document.getElementById("poidsAddFoodID").value;
     var idType = document.getElementById("listeType").value;   
-    var date = document.getElementById("date").value;  
+    var date = document.getElementById("dateAddFoodID").value;  
 
     if (Verification(nameFood) && Verification(poids.toString())) {
         RequestCreateFood(nameFood, poids, idType, date, (sessionStorage.getItem("idUser") +"/"+ sessionStorage.getItem("idFrigo") + "/food"));
@@ -58,4 +58,16 @@ function ResquestRequestCreateFoodError(request, status, error) {
     } else {
         alert("Error");
     }
+}
+
+function resetAddFoodNom(){
+    $("#AddNameFoodID").val("")
+}
+
+function resetAddFoodDate(){
+    $("#dateAddFoodID").val("")
+}
+
+function resetAddFoodPoids(){
+    $("#poidsAddFoodID").val("")
 }

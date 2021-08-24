@@ -80,3 +80,23 @@ function RequestCreateElementError(request, status, error) {
         alert("Error");
     }
 }
+
+function ResetNomElement(){
+    $("#nomElementID").val("")
+    /*
+    let notif = {
+        Type: "error",
+        Message: "Nom reset"
+    }
+    let arrayNotif = [notif]
+    RiseNotification(arrayNotif)
+    */
+}
+
+function ResetPoidsElement(){
+    $("#poidsElementID").val("")
+}
+
+function ResetDescriptionElement(){
+    $("#descriptionElementID").val("")
+}
