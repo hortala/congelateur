@@ -44,7 +44,9 @@
     <div class="main_boxes">
         <div class="container-fluid">
             <div class="row marginTop2">
-                <div class="col-md-3"></div>
+                <div class="col-md-3 text-center">
+                    <button type="button" class="btn btn-dark" onclick="AjouterListeCourse()">Ajouter une liste de course</button>
+                </div>
                 <div class="col-md-6"></div>
                 <div class="col-md-3">
                     <div class="row marginTop5">
@@ -67,6 +69,23 @@
 
 
 
+    <!-- The Modal Add Liste de course-->
+    <div id="modalAddListeCourse" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="TitleModal">Ajoue d'une liste de course</h2>
+            </div>
+            <div class="modal-body">
+                <br>
+                <p class="textColorBlack"><strong>Nom de la liste de course</strong></p>
+                <input type="text" class="form-control" id="nomListeCourseID" placeholder="Ma liste de course" aria-label="Username" aria-describedby="basic-addon1">
+                <br>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-dark" id="btnAddListeCourseID" onclick="SendAddListeCourse()">Créer</button>
+            </div>
+        </div>
+    </div>
 
     <!-- The Modal Add Element-->
     <div id="modalAddElement" class="modal">
@@ -108,8 +127,10 @@
     <script src="../../js/Utilisateur/AffichageUserName.js"></script>
     <script src="../../js/ListeCourse/AddElementListeCourse.js"></script>
     <script src="../../js/ListeCourse/DeleteElementListeCourse.js"></script>
-    <script src="../../js/ListeCourse/DisplayElementListeCourse.js"></script>
+    <script src="../../js/ListeCourse/DisplayListeCourse.js"></script>
     <script src="../../js/Admin/mainAdmin.js"></script>
+    <script src="../../js/ListeCourse/AddListeCourse.js"></script>
+    <script src="../../js/ListeCourse/DeleteListeCourse.js"></script>
 
 </body>
 

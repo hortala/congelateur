@@ -1,5 +1,5 @@
 function DeleteElementListeCouse(idListe) {
-    $(".btnDeleteElementListCourse").prop('disabled',true);
+    $("#DeleteElementListeCourseID_" + idListe).prop('disabled',true);
     RequestDeleteElementListeCourse (idListe, (sessionStorage.getItem("idUser") + "/deleteElementListeCouse"));
 }
 

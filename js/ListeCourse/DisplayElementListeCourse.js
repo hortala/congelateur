@@ -1,15 +1,18 @@
 url = sessionStorage.getItem("url");
 port = "";
-//port = ":5000/";
+
 
 $(document).ready(() => {
     DisplayListeCoursePerso()
-    DisplayListeCoursePartager()
+    //isplayListeCoursePartager()
 })
 
+
 /* Begin Display Element */
+
+
 function DisplayListeCoursePerso() {
-    RequestFoodsGetElementListeCourse(sessionStorage.getItem("idUser") + "/getElementListeCourse");
+    RequestFoodsGetElementListeCourse(sessionStorage.getItem("idUser") + "/getListeCourseElement");
 }
 
 function RequestFoodsGetElementListeCourse(destination) {
@@ -30,7 +33,7 @@ function RequestFoodsGetElementListeCourse(destination) {
 
 function RequestFoodsGetElementListeCourseSucces(response) {
     response = JSON.parse(JSON.stringify(response));
-    BuildTableDisplay(true, response, sessionStorage.getItem("idUser"), "Ma Liste")
+    //BuildTableDisplay(true, response, sessionStorage.getItem("idUser"), "Ma Liste")
 }
 
 function RequestFoodsGetElementListeCourseError(request, status, error) {

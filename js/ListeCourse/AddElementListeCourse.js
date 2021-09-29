@@ -1,10 +1,10 @@
 url = sessionStorage.getItem("url");
 port = "";
 
-idUserAddElement = ""
+idListeCourse = ""
 //Ouverture du modal pour renseigner l'aliments a crée
-function AddElementDisplayModal(idUser){
-    idUserAddElement = idUser
+function AddElementDisplayModal(idListeCourse){
+    sessionStorage.setItem('idListeCourse', idListeCourse)
     DisplayModalAddElement();
 }
 
@@ -29,9 +29,8 @@ function SendAddElement(){
     var nameElement = document.getElementById("nomElementID").value;
     var poids = document.getElementById("poidsElementID").value;
     var description = document.getElementById("descriptionElementID").value;   
-
     if (Verification(nameElement)) {
-        RequestCreateElement(nameElement, poids, description, (idUserAddElement + "/addElementListeCourse"));
+        RequestCreateElement(nameElement, poids, description, (sessionStorage.getItem("idUser") + "/" + sessionStorage.getItem('idListeCourse') + "/addElementListeCourse"));
     } else {
         alert('attention saisie incorect');
         return;
